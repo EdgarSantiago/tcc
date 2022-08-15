@@ -1,26 +1,17 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+@font-face {
+  font-family: 'win99';
+  src: url('./W95FA/w95fa.woff')  format('woff');
+  font-weight: 900;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.blur-navbar{
+  backdrop-filter: blur(4px) !important;
+}
+.click{
+ cursor: pointer;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+h1{
+  line-height: 1.1 !important;
 }
