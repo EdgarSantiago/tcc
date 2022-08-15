@@ -14,7 +14,7 @@ html, body {
 
 * {
   box-sizing: border-box;
-  /*font-family: 'win99';*/
+  /*font-family: 'win99';
 }
 
 .wrapper {
