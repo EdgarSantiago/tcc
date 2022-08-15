@@ -1,37 +1,31 @@
+import Link from "next/link";
+
 function Footer() {
   return (
     <>
     <hr/>
       <div className="container-fluid">
         <footer className="py-1">
-          <ul className="nav justify-content-center border-bottom pb-3 mb-3">
+          <ul className="nav justify-content-center border-bottom mb-2 pb-1">
             <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-muted">
+              <Link href="/">
+              <a className="nav-link text-dark px-2">
                 Home
               </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-muted">
+              <a className="nav-link text-dark px-2">
                 Features
               </a>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-muted">
+              <a href="#" className="nav-link text-dark px-2">
                 Pricing
               </a>
             </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-muted">
-                FAQs
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-muted">
-                About
-              </a>
-            </li>
           </ul>
-          <p className="text-center text-muted">&copy; 2022 Ecrypto, Inc</p>
+          <p className="text-center">&copy; {new Date().getFullYear()} Ecrypto, Inc</p>
         </footer>
       </div>
     </>

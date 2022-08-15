@@ -1,3 +1,8 @@
+landing, info sobre o projeto e botão de logar
+caixa de entrada, lista de emails
+tela de detalhe de um email, assunto, corpo e anexos do email
+tela de escrever um email, campo de input (destinatario e anexos), assunto e corpo
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
