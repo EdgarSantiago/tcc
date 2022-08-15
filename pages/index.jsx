@@ -139,7 +139,7 @@ export default function Home() {
               <h2 className="mb-0">Proton is privacy</h2>
               <h2 className="mb-3">Choose a better internet</h2>
               <h4 className="mb-3">Login now with your metamask account</h4>
-              <Btn className="btn btn-outline-dark" br="50px">Entrar com MetaMask<GiFox/></Btn>
+              <Btn className="btn btn-outline-dark" fs="18px" br="20px">Entrar com MetaMask<GiFox/></Btn>
 
             </Div>
           </Div>

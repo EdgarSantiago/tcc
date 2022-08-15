@@ -14,7 +14,7 @@ html, body {
 
 * {
   box-sizing: border-box;
-  /*font-family: 'win99';
+  /*font-family: 'win99';*/
 }
 
 .wrapper {
@@ -164,6 +164,7 @@ export const Btn = styled(motion.button)`
     background-color: ${(props) => props.bg || ""};
     position: ${(props) => props.position || ""};
     border-radius: ${(props) => props.br || ""};
+    font-size: ${(props) => props.fs || ""};
 
 `
 

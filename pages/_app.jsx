@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Div, GlobalStyles } from "../styles/Elements.jsx";
 import Script from "next/script";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }) {
       <Div style={{marginTop: "55px"}}>
         <Component {...pageProps} />
       </Div>
+      <Footer/>
     </>
   );
 }
