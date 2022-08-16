@@ -6,7 +6,10 @@ function Navbar() {
   return (
     <>
       <nav className="navbar blur-navbar fixed-top">
-        <Div  className="container" widthmd="45rem" height="40px">
+        <Div initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}} 
+            className="container" widthmd="40rem" height="40px">
           <Link href="/">
             <h5 className="mb-0 click text-pink">
 
@@ -16,7 +19,7 @@ function Navbar() {
 
 
           <Link href="/mail">
-            <Btn bg="#EC5DB5" color="#222121" className="btn btn-light py-1">Entrar com MetaMask<GiFox/></Btn>
+            <Btn bg="#EC5DB5" color="#222121" className="btn btn-light py-1">Entrar<GiFox/></Btn>
             </Link>
 
         </Div>

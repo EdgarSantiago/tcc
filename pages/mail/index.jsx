@@ -48,46 +48,45 @@ function Mail() {
     },
   ];
 
- 
   return (
     <>
-    <Bar/>
-    <Layout title="Mails">
-      <Div
-        className="container my-2 px-3 px-md-0"
-        style={{ minHeight: "100vh", paddingTop: "50px" }}
-        height="100%"
-        widthmd="30rem"
-      >
-        {emails ? (
-          <>
-            <SearchBar />
-          </>
-        ) : (
-          <></>
-        )}
+      <Bar />
+      <Layout title="Mails">
+        <Div
+          className="container my-2 px-3 px-md-0"
+          style={{ minHeight: "100vh", paddingTop: "50px" }}
+          height="100%"
+          widthmd="30rem"
+        >
+          {emails ? (
+            <>
+              <SearchBar />
+            </>
+          ) : (
+            <></>
+          )}
 
-        {emails ? (
-          <>
-            {emails.map((email, index) => (
-              <Email
-                key={index}
-                title={email.title}
-                subject={email.subject}
-                date={email.date}
-              />
-            ))}
-          </>
-        ) : (
-          <>
-            <Div className="row align-items-center text-center" height="80vh">
-              <Div className="col-12">
-                <h1>Empty</h1>
+          {emails ? (
+            <>
+              {emails.map((email, index) => (
+                <Email
+                  key={index}
+                  title={email.title}
+                  subject={email.subject}
+                  date={email.date}
+                />
+              ))}
+            </>
+          ) : (
+            <>
+              <Div className="row align-items-center text-center" height="80vh">
+                <Div className="col-12">
+                  <h1>Empty</h1>
+                </Div>
               </Div>
-            </Div>
-          </>
-        )}
-      </Div>
+            </>
+          )}
+        </Div>
       </Layout>
     </>
   );
@@ -99,7 +98,14 @@ export function Bar() {
   return (
     <>
       <nav className="navbar blur-navbar fixed-top">
-        <Div className="container" widthmd="32rem" height="40px">
+        <Div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="container"
+          widthmd="32rem"
+          height="40px"
+        >
           <Div className="d-flex">
             <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
               <HiMenuAlt1 />
@@ -172,7 +178,6 @@ export function Email({ title, subject, date }) {
           <p>{date}</p>
         </Div>
       </Div>
-      
     </>
   );
 }
