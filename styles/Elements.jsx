@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
 
     * {
       box-sizing: border-box;
-      /*font-family: 'win99';*/
+      font-family: 'win99';
     }
 
     .blur-navbar{

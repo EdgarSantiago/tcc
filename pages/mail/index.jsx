@@ -4,24 +4,35 @@ import { AiOutlineReload, AiOutlineSearch } from "react-icons/ai";
 import Link from "next/link";
 
 function Mail() {
+  const emails = null
+
   return (
     <>
       <Bar />
-      <Div
-        className="container border-end border-start my-2"
-        height="100%"
-        widthmd="30rem"
-      >
-        <SearchBar />
-        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
-        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
-        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
-        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
-        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
-        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
-        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
-        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
+      <Div className="container my-2" height="100%" widthmd="30rem">
+        
+        {emails ? <><SearchBar /></> : <></>}
 
+        
+        {emails ? 
+          <>
+            {emails.map((email) => (
+              <Email
+                title={email.title}
+                subject={email.subject}
+                date={email.date}
+              />
+            ))}
+          </>
+         : 
+          <>
+          <Div className="row align-items-center text-center" height="80vh">
+            <Div className="col-12">
+                <h1>Empty</h1>
+            </Div>
+          </Div>
+          </>
+        }
       </Div>
     </>
   );
@@ -69,32 +80,25 @@ export function SearchBar() {
     <>
       <Div className="row">
         <div className="input-group px-0">
-          <Btn
-            border="0px"
-            br="0px"
-            className="btn btn-outline-light border-top border-bottom"
-            type="button"
-          >
+          <Btn className="btn btn-outline-light" type="button">
             <AiOutlineSearch />
           </Btn>
-          <Input
-            br="0px"
-            type="text"
-            className="form-control"
-            placeholder="Search"
-          />
+          <Input type="text" className="form-control" placeholder="Search" />
         </div>
       </Div>
     </>
   );
 }
 
-
-export function Email({title, subject, date}) {
-    return (
-      <>
+export function Email({ title, subject, date }) {
+  return (
+    <>
       <Link href="/mail/email">
-         <Div whileHover={{backgroundColor: "#111111"}} className="row align-items-center border-bottom click" height="70px">
+        <Div
+          whileHover={{ backgroundColor: "#111111" }}
+          className="row align-items-center border-bottom border-secondary click"
+          height="70px"
+        >
           <Div className="col-1 text-center">
             <Div className="input-group">
               <Div
@@ -102,10 +106,7 @@ export function Email({title, subject, date}) {
                 bg="transparent"
                 className="input-group-text px-0"
               >
-                <Input
-                  className="form-check-input mt-0"
-                  type="checkbox"
-                />
+                <Input className="form-check-input mt-0" type="checkbox" />
               </Div>
             </Div>
           </Div>
@@ -119,10 +120,7 @@ export function Email({title, subject, date}) {
             <p>{date}</p>
           </Div>
         </Div>
-        </Link>
-      </>
-    );
-  }
-  
-
-
+      </Link>
+    </>
+  );
+}
