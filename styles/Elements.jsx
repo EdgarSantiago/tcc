@@ -107,7 +107,8 @@ export const Btn = styled(motion.button)`
     background-color: #131313;
   }
   :focus{
-    border-color: transparent !important;
+    outline: none;
+    box-shadow: none;
     }
 `;
 
@@ -134,7 +135,7 @@ export const Input = styled(motion.input)`
     color: #EC5DB5 !important;
     border: 1px solid #EC5DB5;
     background-color: #131313;
-    border-color: transparent !important;
-
+    outline: none;
+    box-shadow: none;
   }
 `;
