@@ -31,7 +31,7 @@ function Mail() {
   return (
     <>
       <Bar />
-      <Div className="container my-2" style={{minHeight:"100vh", paddingTop: "50px"}} height="100%" widthmd="30rem">
+      <Div className="container my-2 px-3 px-md-0" style={{minHeight:"100vh", paddingTop: "50px"}} height="100%" widthmd="30rem">
         
         {emails ? <><SearchBar /></> : <></>}
 
