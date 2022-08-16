@@ -5,13 +5,3 @@
   font-weight: 900;
 }
 
-.blur-navbar{
-  backdrop-filter: blur(4px) !important;
-}
-.click{
- cursor: pointer;
-}
-
-h1{
-  line-height: 1.1 !important;
-}

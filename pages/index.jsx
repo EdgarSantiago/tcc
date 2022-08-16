@@ -41,10 +41,10 @@ export default function Home() {
         <Div className="container" widthmd={width}>
           <Div className="row align-items-center" height="50vh">
             <Div className="col-12 col-md-10">
-              <h1 className="">
+              <h2 className="">
                 With Ecrypto, your data belongs to you, not tech companies,
                 governments, or hackers
-              </h1>
+              </h2>
               <p className="mb-0">
                 Our encrypted services help you fight for a better internet that
                 is secure and private by default.
@@ -61,10 +61,10 @@ export default function Home() {
           <Div className="row align-items-center text-end" height="50vh">
             <Div className="col-2"></Div>
             <Div className="col-12 col-md-10">
-              <h1 className="">
+              <h2 className="">
                 With Ecrypto, your data belongs to you, not tech companies,
                 governments, or hackers
-              </h1>
+              </h2>
               <p className="mb-0">
                 Our encrypted services help you fight for a better internet that
                 is secure and private by default.
@@ -82,7 +82,7 @@ export default function Home() {
             height="100%"
           >
             <Div className="col-10 mb-0">
-              <h1 className="mb-3">Your data, your rules</h1>
+              <h2 className="mb-3">Your data, your rules</h2>
               <h5 className="mb-0">
                 Proton provides easy-to-use encrypted email, calendar, file
                 storage, VPN, and much more, built on the principle of your
@@ -139,7 +139,7 @@ export default function Home() {
               <h2 className="mb-0">Proton is privacy</h2>
               <h2 className="mb-3">Choose a better internet</h2>
               <h4 className="mb-3">Login now with your metamask account</h4>
-              <Btn className="btn btn-outline-dark px-4 py-2" fs="20px" br="20px">Entrar com MetaMask<GiFox/></Btn>
+              <Btn className="btn btn-outline-light px-4 py-2" fs="20px" br="20px">Entrar com MetaMask<GiFox/></Btn>
 
             </Div>
           </Div>

@@ -5,27 +5,8 @@ function Footer() {
     <>
     <hr/>
       <div className="container-fluid">
-        <footer className="py-1">
-          <ul className="nav justify-content-center border-bottom mb-2 pb-1">
-            <li className="nav-item">
-              <Link href="/">
-              <a className="nav-link text-dark px-2">
-                Home
-              </a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-dark px-2">
-                Features
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link text-dark px-2">
-                Pricing
-              </a>
-            </li>
-          </ul>
-          <p className="text-center">&copy; {new Date().getFullYear()} Ecrypto, Inc</p>
+        <footer className="py-2">
+          <p className="text-center mb-0">&copy; {new Date().getFullYear()} Ecrypto</p>
         </footer>
       </div>
     </>

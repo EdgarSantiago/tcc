@@ -15,7 +15,9 @@ function Navbar() {
           </Link>
 
 
-            <Btn className="btn btn-outline-dark py-1" br="50px">Entrar <GiFox/></Btn>
+          <Link href="/mail">
+            <Btn className="btn btn-outline-light py-1" br="50px">Entrar <GiFox/></Btn>
+            </Link>
 
         </Div>
       </nav>
