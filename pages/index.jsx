@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import {GiFox} from 'react-icons/gi'
+import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import { Btn, Color, Div, Section } from "../styles/Elements";
 export default function Home() {
@@ -12,7 +13,8 @@ export default function Home() {
   return (
     <>
     <Navbar/>
-      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: 300}}  whileInView={{opacity: 1, x: 0}}>
+    <Layout title="Home">
+      <Section>
         <Div mt="55px" className="container py-5" height="100vh" widthmd={width}>
           <Div
             className="row align-items-center justify-content-center text-center"
@@ -42,7 +44,7 @@ export default function Home() {
       </Section>
       <hr />
 
-      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: -300}}  whileInView={{opacity: 1, x: 0}}>
+      <Section>
         <Div className="container" widthmd={width}>
           <Div className="row align-items-center" height="50vh">
             <Div className="col-12 col-md-10">
@@ -61,7 +63,7 @@ export default function Home() {
       </Section>
       <hr />
 
-      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: 300}}  whileInView={{opacity: 1, x: 0}}>
+      <Section>
         <Div className="container" widthmd={width}>
           <Div className="row align-items-center text-end" height="50vh">
             <Div className="col-2"></Div>
@@ -80,7 +82,7 @@ export default function Home() {
       </Section>
       <hr />
 
-      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: -300}}  whileInView={{opacity: 1, x: 0}}>
+      <Section>
         <Div className="container py-5" height="100%" widthmd={width}>
           <Div
             className="row align-items-center justify-content-center text-center"
@@ -99,7 +101,7 @@ export default function Home() {
       </Section>
       <hr />
 
-      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: 300}}  whileInView={{opacity: 1, x: 0}}>
+      <Section>
         <Div className="container py-3" widthmd={width}>
           <Div className="row mb-4 text-center">
             <h3 className="text-pink">Reasons why you <Color value={purple}>should</Color> use Ecrypto</h3>
@@ -134,7 +136,7 @@ export default function Home() {
 
       <hr />
 
-      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: -300}}  whileInView={{opacity: 1, x: 0}}>
+      <Section>
         <Div className="container py-5" height="100%" widthmd={width}>
           <Div
             className="row align-items-center justify-content-center text-center"
@@ -151,6 +153,7 @@ export default function Home() {
           </Div>
         </Div>
       </Section>
+    </Layout>
     </>
   );
 }

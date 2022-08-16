@@ -2,41 +2,72 @@ import { Btn, Div, Input } from "../../styles/Elements";
 import { HiMenuAlt1, HiPencil } from "react-icons/hi";
 import { AiOutlineReload, AiOutlineSearch } from "react-icons/ai";
 import Link from "next/link";
+import Layout from "../../components/Layout";
 
 function Mail() {
   const emails = [
     {
-        title: "title 1",
-        subject: "sub 1",
-        date: "15:36"
+      title: "title 1",
+      subject: "sub 1",
+      date: "15:36",
     },
     {
-        title: "title 1",
-        subject: "sub 1",
-        date: "15:36"
+      title: "title 1",
+      subject: "sub 1",
+      date: "15:36",
     },
     {
-        title: "title 1",
-        subject: "sub 1",
-        date: "15:36"
+      title: "title 1",
+      subject: "sub 1",
+      date: "15:36",
     },
     {
-        title: "title 1",
-        subject: "sub 1",
-        date: "15:36"
+      title: "title 1",
+      subject: "sub 1",
+      date: "15:36",
     },
-    
-]
+    {
+      title: "title 1",
+      subject: "sub 1",
+      date: "15:36",
+    },
+    {
+      title: "title 1",
+      subject: "sub 1",
+      date: "15:36",
+    },
+    {
+      title: "title 1",
+      subject: "sub 1",
+      date: "15:36",
+    },
+    {
+      title: "title 1",
+      subject: "sub 1",
+      date: "15:36",
+    },
+  ];
 
+ 
   return (
     <>
-      <Bar />
-      <Div className="container my-2 px-3 px-md-0" style={{minHeight:"100vh", paddingTop: "50px"}} height="100%" widthmd="30rem">
-        
-        {emails ? <><SearchBar /></> : <></>}
+    <Bar/>
+    <Layout title="Mails">
+      <Div
+        className="container my-2 px-3 px-md-0"
+        style={{ minHeight: "100vh", paddingTop: "50px" }}
+        height="100%"
+        widthmd="30rem"
+      >
+        {emails ? (
+          <>
+            <SearchBar />
+          </>
+        ) : (
+          <></>
+        )}
 
-        
-        {emails ? 
+        {emails ? (
           <>
             {emails.map((email, index) => (
               <Email
@@ -47,16 +78,17 @@ function Mail() {
               />
             ))}
           </>
-         : 
+        ) : (
           <>
-          <Div className="row align-items-center text-center" height="80vh">
-            <Div className="col-12">
+            <Div className="row align-items-center text-center" height="80vh">
+              <Div className="col-12">
                 <h1>Empty</h1>
+              </Div>
             </Div>
-          </Div>
           </>
-        }
+        )}
       </Div>
+      </Layout>
     </>
   );
 }
@@ -113,33 +145,34 @@ export function SearchBar() {
 export function Email({ title, subject, date }) {
   return (
     <>
-        <Div
-          whileHover={{ backgroundColor: "#131313", border: "1px solid #EC5DB5" }}
-          className="row align-items-center rounded click mb-1"
-          height="70px"
-          border="1px solid #fafafa30"
-        >
-          <Div className="col-1 text-center">
-            <Div className="input-group">
-              <Div
-                border="0px"
-                bg="transparent"
-                className="input-group-text px-0"
-              >
-                <Input className="form-check-input mt-0" type="checkbox" />
-              </Div>
+      <Div
+        whileHover={{ backgroundColor: "#131313", border: "1px solid #EC5DB5" }}
+        className="row align-items-center rounded click mb-1"
+        height="70px"
+        border="1px solid #fafafa30"
+      >
+        <Div className="col-1 text-center">
+          <Div className="input-group">
+            <Div
+              border="0px"
+              bg="transparent"
+              className="input-group-text px-0"
+            >
+              <Input className="form-check-input mt-0" type="checkbox" />
             </Div>
           </Div>
-
-          <Div className="col-9 px-2 px-md-0">
-            <h5 className="mb-0 text-pink">{title}</h5>
-            <h6 className="mb-0 text-white2">{subject}</h6>
-          </Div>
-
-          <Div className="col-2 px-1 mb-3 text-end">
-            <p>{date}</p>
-          </Div>
         </Div>
+
+        <Div className="col-9 px-2 px-md-0">
+          <h5 className="mb-0 text-pink">{title}</h5>
+          <h6 className="mb-0 text-white2">{subject}</h6>
+        </Div>
+
+        <Div className="col-2 px-1 mb-3 text-end">
+          <p>{date}</p>
+        </Div>
+      </Div>
+      
     </>
   );
 }

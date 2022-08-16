@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <>
       <nav className="navbar blur-navbar fixed-top">
-        <Div className="container" widthmd="45rem" height="40px">
+        <Div  className="container" widthmd="45rem" height="40px">
           <Link href="/">
             <h5 className="mb-0 click text-pink">
 
