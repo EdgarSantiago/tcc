@@ -6,6 +6,9 @@ import Script from "next/script";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+if (typeof window !== 'undefined') {
+  window.history.scrollRestoration = 'manual'
+}
 
 
 function MyApp({ Component, pageProps, router }) {
