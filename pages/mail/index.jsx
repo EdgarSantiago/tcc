@@ -31,7 +31,7 @@ function Mail() {
   return (
     <>
       <Bar />
-      <Div className="container my-2" style={{minHeight:"80vh"}} height="100%" widthmd="30rem">
+      <Div className="container my-2" style={{minHeight:"100vh", paddingTop: "50px"}} height="100%" widthmd="30rem">
         
         {emails ? <><SearchBar /></> : <></>}
 
@@ -65,7 +65,7 @@ export default Mail;
 export function Bar() {
   return (
     <>
-      <nav className="navbar blur-navbar border-bottom">
+      <nav className="navbar blur-navbar fixed-top">
         <Div className="container" widthmd="32rem" height="40px">
           <Div className="d-flex">
             <Btn className="btn btn-outline-light mb-0 click py-1 px-2">

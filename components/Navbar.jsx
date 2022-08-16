@@ -5,7 +5,7 @@ import {GiFox} from 'react-icons/gi'
 function Navbar() {
   return (
     <>
-      <nav className="navbar blur-navbar border-bottom fixed-top">
+      <nav className="navbar blur-navbar fixed-top">
         <Div className="container" widthmd="45rem" height="40px">
           <Link href="/">
             <h5 className="mb-0 click text-pink">
@@ -16,7 +16,7 @@ function Navbar() {
 
 
           <Link href="/mail">
-            <Btn className="btn btn-outline-light py-1" br="50px">Entrar <GiFox/></Btn>
+            <Btn className="btn btn-outline-light py-1">Entrar <GiFox/></Btn>
             </Link>
 
         </Div>

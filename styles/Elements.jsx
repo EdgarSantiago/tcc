@@ -36,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #eee6e6;
+      background: #EC5DB5;
     }
 
     ::-webkit-scrollbar-thumb:hover {
@@ -98,6 +98,17 @@ export const Btn = styled(motion.button)`
   font-size: ${(props) => props.fs || ""};
   border: ${(props) => props.border || ""};
   border-bottom: ${(props) => props.bb || ""};
+  color: #EC5DB5 !important;
+  border: 1px solid #EC5DB5;
+  
+  :hover{
+    color: #EC5DB5 !important;
+    border: 1px solid #EC5DB5;
+    background-color: #131313;
+  }
+  :focus{
+    border-color: transparent !important;
+    }
 `;
 
 
@@ -110,4 +121,20 @@ export const Input = styled(motion.input)`
   background-color: ${(props) => props.bg || ""};
   position: ${(props) => props.position || ""};
   border-radius: ${(props) => props.br || ""};
+  color: #EC5DB5 !important;
+  border: 1px solid #EC5DB5;
+  background-color: #222121;
+  
+  :hover{
+    color: #EC5DB5 !important;
+    border: 1px solid #EC5DB5;
+    background-color: #131313;
+  }
+  :focus{
+    color: #EC5DB5 !important;
+    border: 1px solid #EC5DB5;
+    background-color: #131313;
+    border-color: transparent !important;
+
+  }
 `;
