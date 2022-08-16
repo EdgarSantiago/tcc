@@ -5,7 +5,9 @@ function Footer() {
     <>
       <div className="container-fluid border-top">
         <footer className="py-2">
-          <p className="text-center mb-0">&copy; {new Date().getFullYear()} Ecrypto</p>
+          <Link href="/">
+            <p className="text-center mb-0 click">&copy; {new Date().getFullYear()} Ecrypto</p>
+          </Link>
         </footer>
       </div>
     </>

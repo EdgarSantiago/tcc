@@ -8,16 +8,20 @@ function Mail() {
     <>
       <Bar />
       <Div
-        className="container border-end border-start"
-        height="100vh"
+        className="container border-end border-start my-2"
+        height="100%"
         widthmd="30rem"
       >
         <SearchBar />
-        <Div className="row">
-            <Div className="col-2">
-                {"<"}
-            </Div>
-        </Div>
+        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
+        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
+        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
+        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
+        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
+        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
+        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
+        <Email title="It's a Title" subject="It's a subject" date="15:36"/>
+
       </Div>
     </>
   );
@@ -29,7 +33,7 @@ export function Bar() {
   return (
     <>
       <nav className="navbar blur-navbar border-bottom">
-        <Div className="container" widthmd="30rem" height="40px">
+        <Div className="container" widthmd="32rem" height="40px">
           <Div className="d-flex">
             <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
               <HiMenuAlt1 />
@@ -41,7 +45,7 @@ export function Bar() {
 
           <Div className="d-flex">
             <h5 className="mb-0 mx-1">Emails</h5>
-            <h7 className="mb-0">3365</h7>
+            <h7 className="mb-0 text-pink">3365</h7>
           </Div>
 
           <Div className="d-flex">
@@ -67,9 +71,8 @@ export function SearchBar() {
         <div className="input-group px-0">
           <Btn
             border="0px"
-            bb="1px solid #fafafa"
             br="0px"
-            className="btn btn-outline-light"
+            className="btn btn-outline-light border-top border-bottom"
             type="button"
           >
             <AiOutlineSearch />
@@ -85,3 +88,41 @@ export function SearchBar() {
     </>
   );
 }
+
+
+export function Email({title, subject, date}) {
+    return (
+      <>
+      <Link href="/mail/email">
+         <Div whileHover={{backgroundColor: "#111111"}} className="row align-items-center border-bottom click" height="70px">
+          <Div className="col-1 text-center">
+            <Div className="input-group">
+              <Div
+                border="0px"
+                bg="transparent"
+                className="input-group-text px-0"
+              >
+                <Input
+                  className="form-check-input mt-0"
+                  type="checkbox"
+                />
+              </Div>
+            </Div>
+          </Div>
+
+          <Div className="col-9 px-0">
+            <h5 className="mb-0 text-pink">{title}</h5>
+            <h6 className="mb-0 text-white2">{subject}</h6>
+          </Div>
+
+          <Div className="col-2 px-1 mb-3 text-end">
+            <p>{date}</p>
+          </Div>
+        </Div>
+        </Link>
+      </>
+    );
+  }
+  
+
+

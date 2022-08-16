@@ -46,6 +46,7 @@ export const GlobalStyles = createGlobalStyle`
   `;
 
 export const Div = styled(motion.div)`
+  margin-top: ${(props) => props.mt || ""};
   padding-top: ${(props) => props.pt || ""};
   padding-left: ${(props) => props.pl || ""};
   padding-right: ${(props) => props.pr || ""};
@@ -53,6 +54,7 @@ export const Div = styled(motion.div)`
   width: ${(props) => props.width || ""};
   background-color: ${(props) => props.bg || ""};
   position: ${(props) => props.position || ""};
+  border: ${(props) => props.border || ""};
   @media screen and (min-width: 768px) {
     height: ${(props) => props.heightmd || ""};
     width: ${(props) => props.widthmd || ""};
@@ -73,10 +75,11 @@ export const Section = styled(motion.section)`
   }
 `;
 
-export const Span = styled(motion.span)`
+export const Color = styled(motion.span)`
   padding-top: ${(props) => props.pt || ""};
   padding-left: ${(props) => props.pl || ""};
   padding-right: ${(props) => props.pr || ""};
+  color: ${(props) => props.value || ""};
   height: ${(props) => props.height || ""};
   width: ${(props) => props.width || ""};
   background-color: ${(props) => props.bg || ""};
@@ -95,8 +98,6 @@ export const Btn = styled(motion.button)`
   font-size: ${(props) => props.fs || ""};
   border: ${(props) => props.border || ""};
   border-bottom: ${(props) => props.bb || ""};
-
-
 `;
 
 

@@ -8,7 +8,7 @@ function Navbar() {
       <nav className="navbar blur-navbar border-bottom fixed-top">
         <Div className="container" widthmd="45rem" height="40px">
           <Link href="/">
-            <h5 className="mb-0 click">
+            <h5 className="mb-0 click text-pink">
 
             Ecrypto
             </h5>
