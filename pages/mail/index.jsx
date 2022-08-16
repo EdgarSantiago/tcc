@@ -38,8 +38,9 @@ function Mail() {
         
         {emails ? 
           <>
-            {emails.map((email) => (
+            {emails.map((email, index) => (
               <Email
+                key={index}
                 title={email.title}
                 subject={email.subject}
                 date={email.date}
