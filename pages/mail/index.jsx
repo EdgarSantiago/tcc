@@ -116,7 +116,6 @@ export function SearchBar() {
 export function Email({ title, subject, date }) {
   return (
     <>
-      <Link href="/mail/email">
         <Div
           whileHover={{ backgroundColor: "#131313", border: "1px solid #EC5DB5" }}
           className="row align-items-center rounded click mb-1"
@@ -135,7 +134,7 @@ export function Email({ title, subject, date }) {
             </Div>
           </Div>
 
-          <Div className="col-9 px-0">
+          <Div className="col-9 px-2 px-md-0">
             <h5 className="mb-0 text-pink">{title}</h5>
             <h6 className="mb-0 text-white2">{subject}</h6>
           </Div>
@@ -144,7 +143,6 @@ export function Email({ title, subject, date }) {
             <p>{date}</p>
           </Div>
         </Div>
-      </Link>
     </>
   );
 }
