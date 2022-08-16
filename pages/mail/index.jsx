@@ -4,12 +4,34 @@ import { AiOutlineReload, AiOutlineSearch } from "react-icons/ai";
 import Link from "next/link";
 
 function Mail() {
-  const emails = null
+  const emails = [
+    {
+        title: "title 1",
+        subject: "sub 1",
+        date: "15:36"
+    },
+    {
+        title: "title 1",
+        subject: "sub 1",
+        date: "15:36"
+    },
+    {
+        title: "title 1",
+        subject: "sub 1",
+        date: "15:36"
+    },
+    {
+        title: "title 1",
+        subject: "sub 1",
+        date: "15:36"
+    },
+    
+]
 
   return (
     <>
       <Bar />
-      <Div className="container my-2" height="100%" widthmd="30rem">
+      <Div className="container my-2" style={{minHeight:"80vh"}} height="100%" widthmd="30rem">
         
         {emails ? <><SearchBar /></> : <></>}
 
@@ -78,7 +100,7 @@ export function Bar() {
 export function SearchBar() {
   return (
     <>
-      <Div className="row">
+      <Div className="row mb-1">
         <div className="input-group px-0">
           <Btn className="btn btn-outline-light" type="button">
             <AiOutlineSearch />
@@ -95,9 +117,10 @@ export function Email({ title, subject, date }) {
     <>
       <Link href="/mail/email">
         <Div
-          whileHover={{ backgroundColor: "#111111" }}
-          className="row align-items-center border-bottom border-secondary click"
+          whileHover={{ backgroundColor: "#131313", border: "1px solid #EC5DB5" }}
+          className="row align-items-center rounded click mb-1"
           height="70px"
+          border="1px solid #fafafa30"
         >
           <Div className="col-1 text-center">
             <Div className="input-group">
