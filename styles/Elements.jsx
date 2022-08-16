@@ -98,7 +98,7 @@ export const Btn = styled(motion.button)`
   font-size: ${(props) => props.fs || ""};
   border: ${(props) => props.border || ""};
   border-bottom: ${(props) => props.bb || ""};
-  color: #EC5DB5 !important;
+  color: ${(props) => props.color || "#EC5DB5"};
   border: 1px solid #EC5DB5;
   
   :hover{
@@ -107,6 +107,10 @@ export const Btn = styled(motion.button)`
     background-color: #131313;
   }
   :focus{
+    outline: none;
+    box-shadow: none;
+    }
+  :active{
     outline: none;
     box-shadow: none;
     }

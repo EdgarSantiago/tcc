@@ -16,7 +16,7 @@ function Navbar() {
 
 
           <Link href="/mail">
-            <Btn className="btn btn-outline-light py-1">Entrar <GiFox/></Btn>
+            <Btn bg="#EC5DB5" color="#222121" className="btn btn-light py-1">Entrar com MetaMask<GiFox/></Btn>
             </Link>
 
         </Div>

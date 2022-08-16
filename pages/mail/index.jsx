@@ -72,9 +72,6 @@ export function Bar() {
             <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
               <HiMenuAlt1 />
             </Btn>
-            <h5 className="mb-0 mt-1 mx-2 click">
-              <AiOutlineReload />
-            </h5>
           </Div>
 
           <Div className="d-flex">

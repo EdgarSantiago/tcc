@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <>
     <Navbar/>
-      <Section>
-        <Div mt="55px" className="container py-5" height="100%" widthmd={width}>
+      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: 300}}  whileInView={{opacity: 1, x: 0}}>
+        <Div mt="55px" className="container py-5" height="100vh" widthmd={width}>
           <Div
             className="row align-items-center justify-content-center text-center"
             height="100%"
@@ -42,7 +42,7 @@ export default function Home() {
       </Section>
       <hr />
 
-      <Section>
+      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: -300}}  whileInView={{opacity: 1, x: 0}}>
         <Div className="container" widthmd={width}>
           <Div className="row align-items-center" height="50vh">
             <Div className="col-12 col-md-10">
@@ -61,7 +61,7 @@ export default function Home() {
       </Section>
       <hr />
 
-      <Section>
+      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: 300}}  whileInView={{opacity: 1, x: 0}}>
         <Div className="container" widthmd={width}>
           <Div className="row align-items-center text-end" height="50vh">
             <Div className="col-2"></Div>
@@ -80,7 +80,7 @@ export default function Home() {
       </Section>
       <hr />
 
-      <Section>
+      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: -300}}  whileInView={{opacity: 1, x: 0}}>
         <Div className="container py-5" height="100%" widthmd={width}>
           <Div
             className="row align-items-center justify-content-center text-center"
@@ -99,7 +99,7 @@ export default function Home() {
       </Section>
       <hr />
 
-      <Section>
+      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: 300}}  whileInView={{opacity: 1, x: 0}}>
         <Div className="container py-3" widthmd={width}>
           <Div className="row mb-4 text-center">
             <h3 className="text-pink">Reasons why you <Color value={purple}>should</Color> use Ecrypto</h3>
@@ -134,18 +134,18 @@ export default function Home() {
 
       <hr />
 
-      <Section>
+      <Section transition={{delay: 0.6, duration: 0.8, type: "spring" }} initial={{opacity: 0, x: -300}}  whileInView={{opacity: 1, x: 0}}>
         <Div className="container py-5" height="100%" widthmd={width}>
           <Div
             className="row align-items-center justify-content-center text-center"
             height="100%"
           >
-            <Div className="col-12">
-              <h2 className="mb-0">Ecrypto is privacy</h2>
-              <h2 className="mb-3">Choose a better internet</h2>
-              <h4 className="mb-3">Login now with your metamask account</h4>
+            <Div className="col-10">
+              <h2 className="mb-0 text-pink"><Color value={purple}>Ecrypto</Color> is privacy</h2>
+              <h2 className="mb-3 text-pink">Choose a better internet</h2>
+              <h4 className="mb-3 text-white2">Login now with your metamask account</h4>
               <Link href="/mail">
-                <Btn className="btn btn-outline-light px-4 py-2" fs="20px" br="20px">Entrar com MetaMask<GiFox/></Btn>
+                <Btn bg="#EC5DB5" color="#222121" className="btn btn-light px-4 py-2" fs="20px" br="15px">Entrar com MetaMask<GiFox/></Btn>
               </Link>
             </Div>
           </Div>
