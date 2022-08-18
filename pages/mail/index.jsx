@@ -153,9 +153,10 @@ export function Email({ title, subject, date }) {
   return (
     <>
       <Div
+        onContextMenu={(e) => e.preventDefault()}
         whileHover={whilePress}
         whileTap={whilePress}
-        className="row align-items-center rounded click mb-1"
+        className="row align-items-center rounded click mb-1 cancel-menu"
         height="70px"
         border="1px solid #fafafa30"
       >

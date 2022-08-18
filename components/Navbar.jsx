@@ -11,10 +11,10 @@ function Navbar() {
             exit={{opacity: 0}} 
             className="container" widthmd="40rem" height="40px">
           <Link href="/">
-            <h4 className="mb-0 click text-pink">
+            <h2 className="mb-0 click text-pink">
 
             Ecrypto
-            </h4>
+            </h2>
           </Link>
 
 

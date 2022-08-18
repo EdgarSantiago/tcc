@@ -23,6 +23,11 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
     }
 
+    .cancel-menu {
+          user-select: none;
+    }
+
+
     h1{
       line-height: 1.1 !important;
     }
