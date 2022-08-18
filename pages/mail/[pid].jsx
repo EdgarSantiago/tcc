@@ -1,52 +1,10 @@
 import { Btn, Div, Input } from "../../styles/Elements";
-import { HiMenuAlt1, HiPencil } from "react-icons/hi";
-import { AiOutlineReload, AiOutlineSearch } from "react-icons/ai";
+import { RiSendPlaneLine } from "react-icons/ri";
+import { AiOutlineReload, AiOutlineSearch, AiOutlineClose, AiOutlineSend } from "react-icons/ai";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 
-function Mail() {
-  const emails = [
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-  ];
+function OneMail() {
 
   return (
     <>
@@ -58,41 +16,22 @@ function Mail() {
           height="100%"
           widthmd="30rem"
         >
-          {emails ? (
-            <>
-              <SearchBar />
-            </>
-          ) : (
-            <></>
-          )}
+              <InputBar title={"For:"} type={"text"} pHolder="e@ecrypto.com"/>
+              <InputBar title={"Cc/CCo:"} type={"text"}/>
+              <InputBar title={"Subject:"} type={"text"}/>
+              <InputBar title={"Files:"} type={"file"}/>
 
-          {emails ? (
-            <>
-              {emails.map((email, index) => (
-                <Email
-                  key={index}
-                  title={email.title}
-                  subject={email.subject}
-                  date={email.date}
-                />
-              ))}
-            </>
-          ) : (
-            <>
-              <Div className="row align-items-center text-center" height="80vh">
-                <Div className="col-12">
-                  <h1>Empty</h1>
-                </Div>
-              </Div>
-            </>
-          )}
+              <div className="row mb-3">
+                <textarea className="form-control" style={{backgroundColor: "#222121", borderColor: "#ec5db5", color: "#ec5db5"}} rows="3"></textarea>
+                </div>
+
         </Div>
       </Layout>
     </>
   );
 }
 
-export default Mail;
+export default OneMail;
 
 export function Bar() {
   return (
@@ -107,9 +46,11 @@ export function Bar() {
           height="40px"
         >
           <Div className="d-flex">
+            <Link href="/mail">
             <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
-              <HiMenuAlt1 />
+              <AiOutlineClose />
             </Btn>
+            </Link>
           </Div>
 
           <Div className="d-flex">
@@ -123,7 +64,7 @@ export function Bar() {
                 fs="18px"
                 className="mb-0 click btn btn-outline-light py-1 px-2"
               >
-                <HiPencil />
+                <RiSendPlaneLine />
               </Btn>
             </Link>
           </Div>
@@ -133,15 +74,15 @@ export function Bar() {
   );
 }
 
-export function SearchBar() {
+export function InputBar({title, type, pHolder}) {
   return (
     <>
       <Div className="row mb-1">
         <div className="input-group px-0">
           <Btn className="btn btn-outline-light" type="button">
-            <AiOutlineSearch />
+            {title}
           </Btn>
-          <Input type="text" className="form-control" placeholder="Search" />
+          <Input type={type} className="form-control" placeholder={pHolder} />
         </div>
       </Div>
     </>

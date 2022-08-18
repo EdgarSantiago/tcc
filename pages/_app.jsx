@@ -12,7 +12,11 @@ if (typeof window !== 'undefined') {
 
 
 function MyApp({ Component, pageProps, router }) {
+  const oneroute = toString(router.route)
+  console.log((router.route))
+
   return (
+
     <>
       <GlobalStyles />
       <Script
@@ -20,6 +24,7 @@ function MyApp({ Component, pageProps, router }) {
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossOrigin="anonymous"
       />
+      
       <AnimatePresence
         exitBeforeEnter
         initial={true}
@@ -28,7 +33,7 @@ function MyApp({ Component, pageProps, router }) {
             window.scrollTo({ top: 0 })
           }
         }}
-      >
+        >
             <Component {...pageProps} key={router.route} />
       </AnimatePresence>
       <Footer />

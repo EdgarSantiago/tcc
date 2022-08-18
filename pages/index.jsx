@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <>
-    <Navbar/>
+      <Navbar/>
     <Layout title="Home">
       <Section>
         <Div mt="55px" className="container py-5" height="100vh" widthmd={width}>
