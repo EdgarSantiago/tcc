@@ -149,13 +149,13 @@ export function SearchBar() {
 }
 
 export function Email({ title, subject, date }) {
-  const whilePress = { backgroundColor: "#131313", border: "1px solid #EC5DB5"}
+  const press = { backgroundColor: "#131313", border: "1px solid #EC5DB5"}
   return (
     <>
       <Div
         onContextMenu={(e) => e.preventDefault()}
-        whileHover={whilePress}
-        whileTap={whilePress}
+        whileHover={press}
+        whileTap={press}
         className="row align-items-center rounded click mb-1 cancel-menu"
         height="70px"
         border="1px solid #fafafa30"

@@ -104,31 +104,27 @@ export const Btn = styled(motion.button)`
   border: ${(props) => props.border || ""};
   border-bottom: ${(props) => props.bb || ""};
   color: ${(props) => props.color || "#EC5DB5"};
-  border: 1px solid #EC5DB5;
+  border: 1px solid #ec5db5;
 
-  background: 
-    linear-gradient(#181717 0 0) padding-box,
-    linear-gradient(to right, #9c20aa, #9836a3, #EC5DB5) border-box;
-      border: 1px solid transparent;
-      display: inline-block;
-      color: #EC5DB5 !important;
+  background: linear-gradient(#140d12 0 0) padding-box,
+    linear-gradient(to right, #9c20aa, #9836a3, #ec5db5) border-box;
+  border: 1px solid transparent;
+  display: inline-block;
+  color: #ec5db5 !important;
 
-
-  
-  :hover{
+  :hover {
     color: #fafafa !important;
     background-color: #181616 !important;
   }
-  :focus{
+  :focus {
     outline: none;
     box-shadow: none;
-    }
-  :active{
+  }
+  :active {
     outline: none;
     box-shadow: none;
-    }
+  }
 `;
-
 
 export const Input = styled(motion.input)`
   padding-top: ${(props) => props.pt || ""};
@@ -139,20 +135,24 @@ export const Input = styled(motion.input)`
   background-color: ${(props) => props.bg || ""};
   position: ${(props) => props.position || ""};
   border-radius: ${(props) => props.br || ""};
-  color: #EC5DB5 !important;
-  border: 1px solid #EC5DB5;
+  color: #ec5db5 !important;
+  border: 1px solid #ec5db5;
   background-color: #222121;
-  
-  :hover{
-    color: #EC5DB5 !important;
-    border: 1px solid #EC5DB5;
+
+  :hover {
+    color: #ec5db5 !important;
+    border: 1px solid #ec5db5;
     background-color: #131313;
   }
-  :focus{
-    color: #EC5DB5 !important;
-    border: 1px solid #EC5DB5;
+  :focus {
+    color: #ec5db5 !important;
+    border: 1px solid #ec5db5;
     background-color: #131313;
     outline: none;
     box-shadow: none;
+  }
+  :checked {
+    background-color: #131313;
+    border-color: #ec5db5;
   }
 `;
