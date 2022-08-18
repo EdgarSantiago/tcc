@@ -54,8 +54,7 @@ export function Bar() {
           </Div>
 
           <Div className="d-flex">
-            <h5 className="mb-0 mx-1">Emails</h5>
-            <h7 className="mb-0 text-pink">3365</h7>
+            <h5 className="mb-0 mx-1">Write</h5>
           </Div>
 
           <Div className="d-flex">

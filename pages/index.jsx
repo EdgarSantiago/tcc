@@ -108,27 +108,27 @@ export default function Home() {
           </Div>
           <Div className="row g-2 justify-content-center">
             <Div className="col-3 mx-2 text-center">
-              <p>Segurança</p>
+              <p>Security</p>
             </Div>
 
             <Div className="col-3 mx-2 text-center">
-              <p>Descentralizado</p>
+              <p>Decentralized</p>
             </Div>
 
             <Div className="col-3 mx-2 text-center">
-              <p>Prevenção</p>
+              <p>Prevention</p>
             </Div>
 
             <Div className="col-3 mx-2 text-center">
-              <p>Segurança</p>
+              <p>Security</p>
             </Div>
 
             <Div className="col-3 mx-2 text-center">
-              <p>Descentralizado</p>
+              <p>Decentralized</p>
             </Div>
 
             <Div className="col-3 mx-2 text-center">
-              <p>Prevenção</p>
+              <p>Prevention</p>
             </Div>
           </Div>
         </Div>
@@ -147,7 +147,7 @@ export default function Home() {
               <h2 className="mb-3 text-pink">Choose a better internet</h2>
               <h4 className="mb-3 text-white2">Login now with your metamask account</h4>
               <Link href="/mail">
-                <Btn bg="#EC5DB5" color="#222121" className="btn btn-light px-4 py-2" fs="20px" br="15px">Entrar com MetaMask<GiFox/></Btn>
+                <Btn bg="#EC5DB5" color="#222121" className="btn btn-light px-4 py-2" fs="20px" br="15px">Sign-in with MetaMask<GiFox/></Btn>
               </Link>
             </Div>
           </Div>

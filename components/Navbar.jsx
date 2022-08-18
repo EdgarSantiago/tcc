@@ -19,7 +19,7 @@ function Navbar() {
 
 
           <Link href="/mail">
-            <Btn bg="#EC5DB5" className="btn btn-light py-1">Entrar<GiFox/></Btn>
+            <Btn bg="#EC5DB5" className="btn btn-light py-1">Sign In<GiFox/></Btn>
             </Link>
 
         </Div>
