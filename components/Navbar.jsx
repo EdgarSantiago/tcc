@@ -11,15 +11,15 @@ function Navbar() {
             exit={{opacity: 0}} 
             className="container" widthmd="40rem" height="40px">
           <Link href="/">
-            <h5 className="mb-0 click text-pink">
+            <h4 className="mb-0 click text-pink">
 
             Ecrypto
-            </h5>
+            </h4>
           </Link>
 
 
           <Link href="/mail">
-            <Btn bg="#EC5DB5" color="#222121" className="btn btn-light py-1">Entrar<GiFox/></Btn>
+            <Btn bg="#EC5DB5" className="btn btn-light py-1">Entrar<GiFox/></Btn>
             </Link>
 
         </Div>

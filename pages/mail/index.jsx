@@ -149,10 +149,12 @@ export function SearchBar() {
 }
 
 export function Email({ title, subject, date }) {
+  const whilePress = { backgroundColor: "#131313", border: "1px solid #EC5DB5"}
   return (
     <>
       <Div
-        whileHover={{ backgroundColor: "#131313", border: "1px solid #EC5DB5" }}
+        whileHover={whilePress}
+        whileTap={whilePress}
         className="row align-items-center rounded click mb-1"
         height="70px"
         border="1px solid #fafafa30"

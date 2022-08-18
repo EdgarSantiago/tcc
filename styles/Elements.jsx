@@ -100,11 +100,19 @@ export const Btn = styled(motion.button)`
   border-bottom: ${(props) => props.bb || ""};
   color: ${(props) => props.color || "#EC5DB5"};
   border: 1px solid #EC5DB5;
+
+  background: 
+    linear-gradient(#181717 0 0) padding-box,
+    linear-gradient(to right, #9c20aa, #9836a3, #EC5DB5) border-box;
+      border: 1px solid transparent;
+      display: inline-block;
+      color: #EC5DB5 !important;
+
+
   
   :hover{
-    color: #EC5DB5 !important;
-    border: 1px solid #EC5DB5;
-    background-color: #131313;
+    color: #fafafa !important;
+    background-color: #181616 !important;
   }
   :focus{
     outline: none;
