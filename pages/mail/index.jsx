@@ -149,7 +149,7 @@ export function SearchBar() {
 }
 
 export function Email({ title, subject, date }) {
-  const press = { backgroundColor: "#131313", border: "1px solid #EC5DB5"}
+  const press = { backgroundColor: "#131313", border: "1px solid #5d5fec"}
   return (
     <>
       <Div

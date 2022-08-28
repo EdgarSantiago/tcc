@@ -16,14 +16,15 @@ function OneMail() {
           height="100%"
           widthmd="30rem"
         >
-              <InputBar title={"For:"} type={"text"} pHolder="e@ecrypto.com"/>
-              <InputBar title={"Cc/CCo:"} type={"text"}/>
-              <InputBar title={"Subject:"} type={"text"}/>
-              <InputBar title={"Files:"} type={"file"}/>
+          <InputBar title={"For:"} type={"text"} pHolder="e@ecrypto.com" />
+          <InputBar title={"Cc/CCo:"} type={"text"} />
+          <InputBar title={"Subject:"} type={"text"} />
+          <InputBar title={"Files:"} type={"file"} />
+        
 
-              <div className="row mb-3">
-                <textarea className="form-control" style={{backgroundColor: "#222121", borderColor: "#ec5db5", color: "#ec5db5"}} rows="3"></textarea>
-                </div>
+          <div className="row mb-3">
+            <textarea className="form-control" style={{ backgroundColor: "#222121", borderColor: "#5d5fec", color: "#5d5fec" }} rows="3"></textarea>
+          </div>
 
         </Div>
       </Layout>
@@ -47,9 +48,9 @@ export function Bar() {
         >
           <Div className="d-flex">
             <Link href="/mail">
-            <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
-              <AiOutlineClose />
-            </Btn>
+              <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
+                <AiOutlineClose />
+              </Btn>
             </Link>
           </Div>
 
@@ -73,7 +74,7 @@ export function Bar() {
   );
 }
 
-export function InputBar({title, type, pHolder}) {
+export function InputBar({ title, type, pHolder }) {
   return (
     <>
       <Div className="row mb-1">
@@ -89,7 +90,7 @@ export function InputBar({title, type, pHolder}) {
 }
 
 export function Email({ title, subject, date }) {
-  const press = { backgroundColor: "#131313", border: "1px solid #EC5DB5"}
+  const press = { backgroundColor: "#131313", border: "1px solid #EC5DB5" }
   return (
     <>
       <Div

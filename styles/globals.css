@@ -6,9 +6,12 @@
 }
 
 .text-pink{
-  color: #EC5DB5;
+  color: #5d5fec;
 }
 
 .text-white2{
   color:  #fafafacb;
+}
+.hr{
+  border: 1px solid #5d5fec;
 }

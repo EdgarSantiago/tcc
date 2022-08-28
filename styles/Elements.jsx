@@ -1,7 +1,10 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { motion } from "framer-motion";
 
+
+
 export const GlobalStyles = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 
     html, body {
       padding: 0;
@@ -13,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
 
     * {
       box-sizing: border-box;
+      
       font-family: 'win99';
     }
 
@@ -41,7 +45,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #EC5DB5;
+      background: #5d5fec;
     }
 
     ::-webkit-scrollbar-thumb:hover {
@@ -103,14 +107,14 @@ export const Btn = styled(motion.button)`
   font-size: ${(props) => props.fs || ""};
   border: ${(props) => props.border || ""};
   border-bottom: ${(props) => props.bb || ""};
-  color: ${(props) => props.color || "#EC5DB5"};
-  border: 1px solid #ec5db5;
+  color: ${(props) => props.color || "#5d5fec"};
+  border: 1px solid #5d5fec;
 
   background: linear-gradient(#140d12 0 0) padding-box,
-    linear-gradient(to right, #9c20aa, #9836a3, #ec5db5) border-box;
+    linear-gradient(to right, #9c20aa, #9836a3, #5d5fec) border-box;
   border: 1px solid transparent;
   display: inline-block;
-  color: #ec5db5 !important;
+  color: #5d5fec !important;
 
   :hover {
     color: #fafafa !important;
@@ -124,6 +128,8 @@ export const Btn = styled(motion.button)`
     outline: none;
     box-shadow: none;
   }
+
+  
 `;
 
 export const Input = styled(motion.input)`
@@ -135,24 +141,26 @@ export const Input = styled(motion.input)`
   background-color: ${(props) => props.bg || ""};
   position: ${(props) => props.position || ""};
   border-radius: ${(props) => props.br || ""};
-  color: #ec5db5 !important;
-  border: 1px solid #ec5db5;
+  color: #5d5fec !important;
+  border: 1px solid #5d5fec;
   background-color: #222121;
 
   :hover {
-    color: #ec5db5 !important;
-    border: 1px solid #ec5db5;
+    color: #5d5fec !important;
+    border: 1px solid #5d5fec;
     background-color: #131313;
   }
   :focus {
-    color: #ec5db5 !important;
-    border: 1px solid #ec5db5;
+    color: #5d5fec !important;
+    border: 1px solid #5d5fec;
     background-color: #131313;
     outline: none;
     box-shadow: none;
   }
   :checked {
     background-color: #131313;
-    border-color: #ec5db5;
+    border-color: #5d5fec;
   }
+ 
+}
 `;

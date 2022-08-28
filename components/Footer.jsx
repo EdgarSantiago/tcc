@@ -7,7 +7,7 @@ function Footer() {
       <div className="container-fluid">
         <footer className="py-2">
           <Link href="/">
-            <p className="text-center mb-0 click">&copy; {new Date().getFullYear()} <Color value="#EC5DB5">Ecrypto</Color></p>
+            <p className="text-center mb-0 click">&copy; {new Date().getFullYear()} <Color value="#5d5fec">Ecrypto</Color></p>
           </Link>
         </footer>
       </div>
