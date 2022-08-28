@@ -162,5 +162,4 @@ export const Input = styled(motion.input)`
     border-color: #5d5fec;
   }
  
-}
 `;
