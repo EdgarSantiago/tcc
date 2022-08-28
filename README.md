@@ -3,9 +3,9 @@
 ### Rotas
 
 - [x] Home - landing, info sobre o projeto e botão de logar
-- [ ] `mail` - caixa de entrada, lista de emails
+- [x] `mail` - caixa de entrada, lista de emails
 - [ ] `mail/:id` - tela de detalhe de um email, assunto, corpo e anexos do email
-- [ ] `mail/send` - tela de escrever um email, campo de input (destinatario e anexos), assunto e corpo
+- [x] `mail/send` - tela de escrever um email, campo de input (destinatario e anexos), assunto e corpo
 
 #### Cor primária: `#EC5DB5`
 
