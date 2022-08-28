@@ -7,6 +7,15 @@
 - [ ] `mail/:id` - tela de detalhe de um email, assunto, corpo e anexos do email
 - [x] `mail/send` - tela de escrever um email, campo de input (destinatario e anexos), assunto e corpo
 
+### Metamask
+
+- [ ] Acessar conta/endereço primário do usuário
+- [ ] Carregar da rede ethereum os e-mails do usuário
+- [ ] Integração com IPFS (ainda checando se será possível no nosso contexto)
+- [ ] Criar payload de e-mail contendo destinatário, assunto, corpo e link de anexo (caso tenha)
+- [ ] Criptografar payload de e-mail usando o endereço do usuário
+- [ ] Enviar transação para destinatário com payload de e-mail completo para a rede ethereum
+
 #### Cor primária: `#EC5DB5`
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
