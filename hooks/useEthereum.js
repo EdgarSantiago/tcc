@@ -26,7 +26,7 @@ export function useEthereum() {
     });
   };
 
-  const enviar = (to, subject, body, value) => {
+  const enviar = (to, subject, body, value, attachments) => {
     if (typeof ethereum === "undefined" || typeof account === "undefined") {
       return Swal.fire({
         title: "Erro!",
@@ -40,6 +40,7 @@ export function useEthereum() {
       type: "mail",
       subject: subject || "Sem assunto",
       body: body || "Sem corpo",
+      attachments,
     };
 
     ethereum
