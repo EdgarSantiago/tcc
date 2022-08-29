@@ -92,8 +92,10 @@ const Email = () => {
               <>
                 <p className="mb-0">
                   <Color>Anexos:</Color>
-                  {email.attachments.map((attachs) => (
-                    <Image height="50px" width="50px" src={"https://ipfs.io/ipfs/" + attachs}/>
+                  {email.attachments.map((attachs, index) => (
+                    <div key={index}>
+                      <Image height="50px" width="50px" src={"https://ipfs.io/ipfs/" + attachs}/>
+                    </div>
                   ))}
                 </p>
               </>
