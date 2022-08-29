@@ -1,5 +1,5 @@
 import { useEthereum } from "../../hooks/useEthereum";
-import { Btn, Div, Input } from "../../styles/Elements";
+import { Btn, Color, Div, Input } from "../../styles/Elements";
 import { HiMenuAlt1, HiPencil } from "react-icons/hi";
 import { AiOutlineReload, AiOutlineSearch } from "react-icons/ai";
 import Link from "next/link";
@@ -52,7 +52,7 @@ function Mail() {
 
   if (typeof ethereum === "undefined") {
     return (
-      <Layout title={"Carregando..."}>
+      <Layout title={"Carregando... "}>
         <p style={{ textAlign: "center" }}>// TODO: Loader</p>
       </Layout>
     );
@@ -77,8 +77,8 @@ function Mail() {
                 .map((email, index) => (
                   <Email
                     key={index}
-                    title={strSmartTrim(email.tx, 20)}
-                    subject={email.subject}
+                    subject={strSmartTrim(email.tx, 20)}
+                    title={email.subject}
                     date={email.date.toLocaleString()}
                   />
                 ))}
@@ -164,28 +164,17 @@ export function Email({ title, subject, date }) {
         onContextMenu={(e) => e.preventDefault()}
         whileHover={press}
         whileTap={press}
-        className="row align-items-center rounded click mb-1 cancel-menu"
+        className="row align-items-center rounded click mb-1 cancel-menu px-2"
         height="70px"
         border="1px solid #fafafa30"
       >
-        <Div className="col-1 text-center">
-          <Div className="input-group">
-            <Div
-              border="0px"
-              bg="transparent"
-              className="input-group-text px-0"
-            >
-              <Input className="form-check-input mt-0" type="checkbox" />
-            </Div>
-          </Div>
-        </Div>
 
-        <Div className="col-9 px-2 px-md-0">
+        <Div className="col-6 col-md-8 px-md-0">
           <h5 className="mb-0 text-pink">{title}</h5>
-          <h6 className="mb-0 text-white2">{subject}</h6>
+          <h6 className="mb-0 text-white2"><Color>from: </Color> {subject}</h6>
         </Div>
 
-        <Div className="col-2 px-1 mb-3 text-end">
+        <Div className="col-6 col-md-4 px-1 mb-3 text-end">
           <p>{date}</p>
         </Div>
       </Div>

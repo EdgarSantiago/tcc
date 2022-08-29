@@ -8,8 +8,8 @@ import Navbar from "../components/Navbar";
 import { Btn, Color, Div, Section } from "../styles/Elements";
 
 export default function Home() {
-  const width = "42rem";
-  const pink = "#5d5fec";
+  const width = "52rem";
+  const blue = "#5d5fec";
   const purple = "#9567d1";
 
   const { logar } = useEthereum();
@@ -31,11 +31,11 @@ export default function Home() {
             >
               <Div className="col-12 mb-0 mb-md-5">
                 <p className="mb-0">
-                  <Color value={pink}>Ecrypto</Color> is privacy by default
+                  <Color value={blue}>Ecrypto</Color> is privacy by default
                 </p>
                 <h1 className="display-4">
                   Welcome to a better internet where{" "}
-                  <Color value={pink}>privacy and freedom come first</Color>
+                  <Color value={blue}>privacy and freedom come first</Color>
                 </h1>
               </Div>
               <Div className="col-2 d-none d-md-block">
@@ -60,7 +60,7 @@ export default function Home() {
           <Div className="container" widthmd={width}>
             <Div className="row align-items-center" height="50vh">
               <Div className="col-12 col-md-10">
-                <h2 className="text-pink">
+                <h2 className="text-blue">
                   With Ecrypto, your data belongs to you, not tech companies,
                   governments, or hackers
                 </h2>
@@ -81,7 +81,7 @@ export default function Home() {
             <Div className="row align-items-center text-end" height="50vh">
               <Div className="col-2"></Div>
               <Div className="col-12 col-md-10">
-                <h2 className="text-pink">
+                <h2 className="text-blue">
                   With Ecrypto, your data belongs to you, not tech companies,
                   governments, or hackers
                 </h2>
@@ -93,7 +93,10 @@ export default function Home() {
             </Div>
           </Div>
         </Section>
-        <hr />
+
+        <hr className="hr" />
+        <hr className="hr" />
+
 
         <Section>
           <Div className="container py-5" height="100%" widthmd={width}>
@@ -103,7 +106,7 @@ export default function Home() {
             >
               <Div className="col-10 mb-0">
                 <h2 className="mb-3">
-                  <Color value={pink}>Your data,</Color>{" "}
+                  <Color value={blue}>Your data,</Color>{" "}
                   <Color value={purple}>your rules</Color>
                 </h2>
                 <h5 className="mb-0 text-white2">
@@ -115,12 +118,14 @@ export default function Home() {
             </Div>
           </Div>
         </Section>
-        <hr />
+
+        <hr className="hr" />
+        <hr className="hr" />
 
         <Section>
           <Div className="container py-3" widthmd={width}>
             <Div className="row mb-4 text-center">
-              <h3 className="text-pink">
+              <h3 className="text-blue">
                 Reasons why you <Color value={purple}>should</Color> use Ecrypto
               </h3>
             </Div>
@@ -152,7 +157,8 @@ export default function Home() {
           </Div>
         </Section>
 
-        <hr />
+        <hr className="hr" />
+        <hr className="hr" />
 
         <Section>
           <Div className="container py-5" height="100%" widthmd={width}>
@@ -160,11 +166,11 @@ export default function Home() {
               className="row align-items-center justify-content-center text-center"
               height="100%"
             >
-              <Div className="col-10">
-                <h2 className="mb-0 text-pink">
+              <Div className="col-12">
+                <h2 className="mb-0 text-blue">
                   <Color value={purple}>Ecrypto</Color> is privacy
                 </h2>
-                <h2 className="mb-3 text-pink">Choose a better internet</h2>
+                <h2 className="mb-3 text-blue">Choose a better internet</h2>
                 <h4 className="mb-3 text-white2">
                   Login now with your metamask account
                 </h4>

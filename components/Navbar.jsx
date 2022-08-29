@@ -4,6 +4,7 @@ import { Btn, Div } from "../styles/Elements";
 import { GiFox } from "react-icons/gi";
 
 function Navbar() {
+  
   const { logar } = useEthereum();
 
   return (

@@ -25,6 +25,9 @@ function MyApp({ Component, pageProps, router }) {
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.5/web3.min.js" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.0/ethers.umd.min.js" />
 
+      <Script src="sweetalert2.min.js"/>
+      <link rel="stylesheet" href="sweetalert2.min.css"/>
+
       <AnimatePresence
         exitBeforeEnter
         initial={true}

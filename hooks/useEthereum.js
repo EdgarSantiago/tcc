@@ -1,5 +1,6 @@
 import { useState, useLayoutEffect } from "react";
 import { useRouter } from "next/router";
+import Swal from 'sweetalert2'
 
 export function useEthereum() {
   const router = useRouter();
@@ -10,7 +11,13 @@ export function useEthereum() {
   const logar = (page) => {
     if (typeof ethereum === "undefined") {
       // TODO: fazer um alerta mais bonito. modal, swal fire (?)
-      return alert("Você precisa instalar a MetaMask para poder fazer login.");
+      return Swal.fire({
+        title: 'Erro!',
+        text: 'Você precisa instalar a MetaMask para poder fazer login.',
+        background: '#222121',
+        color: "#fafafa",
+        confirmButtonText: '<a class="text-decoration-none text-white" href="https://metamask.io/download/">Instalar</a> ',
+      });
     }
 
     ethereum.request({ method: "eth_requestAccounts" }).then((accounts) => {
@@ -22,7 +29,12 @@ export function useEthereum() {
   const enviar = (to, subject, body, value) => {
     if (typeof ethereum === "undefined" || typeof account === "undefined") {
       // TODO: fazer um alerta mais bonito. modal, swal fire (?)
-      return alert("Você precisa estar logado para poder enviar um e-mail.");
+      return Swal.fire({
+        title: 'Erro!',
+        text: 'Você precisa estar logado para poder enviar um e-mail.',
+        background: '#222121',
+        color: "#fafafa"
+      });
     }
 
     const emailObj = {
@@ -48,7 +60,13 @@ export function useEthereum() {
       })
       .then((tx) => {
         // TODO: fazer um alerta mais bonito. modal, swal fire (?)
-        alert("E-mail enviado com sucesso.\nTX: " + tx);
+        Swal.fire({
+          icon: 'success',
+          title: 'Sucesso!',
+          text: 'Email enviado com sucesso!',
+          background: '#222121',
+          color: "#fafafa"
+        });
         router.replace("/mail");
       });
   };
