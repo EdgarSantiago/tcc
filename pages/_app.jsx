@@ -6,17 +6,15 @@ import Script from "next/script";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-if (typeof window !== 'undefined') {
-  window.history.scrollRestoration = 'manual'
+if (typeof window !== "undefined") {
+  window.history.scrollRestoration = "manual";
 }
 
-
 function MyApp({ Component, pageProps, router }) {
-  const oneroute = toString(router.route)
-  console.log((router.route))
+  const oneroute = toString(router.route);
+  console.log(router.route);
 
   return (
-
     <>
       <GlobalStyles />
       <Script
@@ -24,17 +22,19 @@ function MyApp({ Component, pageProps, router }) {
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossOrigin="anonymous"
       />
-      
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.5/web3.min.js" />
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.0/ethers.umd.min.js" />
+
       <AnimatePresence
         exitBeforeEnter
         initial={true}
         onExitComplete={() => {
-          if (typeof window !== 'undefined') {
-            window.scrollTo({ top: 0 })
+          if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0 });
           }
         }}
-        >
-            <Component {...pageProps} key={router.route} />
+      >
+        <Component {...pageProps} key={router.route} />
       </AnimatePresence>
       <Footer />
     </>

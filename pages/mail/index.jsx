@@ -1,81 +1,87 @@
+import { useEthereum } from "../../hooks/useEthereum";
 import { Btn, Div, Input } from "../../styles/Elements";
 import { HiMenuAlt1, HiPencil } from "react-icons/hi";
 import { AiOutlineReload, AiOutlineSearch } from "react-icons/ai";
 import Link from "next/link";
 import Layout from "../../components/Layout";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { strSmartTrim } from "../../utils/string";
 
 function Mail() {
-  const emails = [
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-    {
-      title: "title 1",
-      subject: "sub 1",
-      date: "15:36",
-    },
-  ];
+  const { ethereum, account, logar } = useEthereum();
+  const [emails, setEmails] = useState([]);
+
+  useEffect(() => {
+    if (typeof account !== "undefined") {
+      const provider = new ethers.providers.EtherscanProvider(
+        "goerli",
+        "X56U4HDNT7SI7GS39BI2Q8RXDM6BR3JG2C"
+      );
+      provider
+        .getHistory(account)
+        .then((txs) => {
+          const parsedEmails = [];
+
+          for (const tx of txs) {
+            try {
+              const dataObj = JSON.parse(Web3.utils.toUtf8(tx.data));
+
+              if (
+                dataObj.type == "mail" &&
+                tx.to.toLowerCase() == account.toLowerCase()
+              ) {
+                dataObj.tx = tx.hash;
+                dataObj.date = new Date(tx.timestamp * 1000);
+                parsedEmails.push(dataObj);
+              }
+            } catch {}
+          }
+
+          console.log(parsedEmails);
+          setEmails(parsedEmails);
+        })
+        .catch(console.error);
+    }
+  }, [account]);
+
+  useLayoutEffect(() => {
+    if (typeof ethereum !== "undefined" && typeof account === "undefined") {
+      logar("/mail");
+    }
+  }, [ethereum, account]);
+
+  if (typeof ethereum === "undefined") {
+    return (
+      <Layout title={"Carregando..."}>
+        <p style={{ textAlign: "center" }}>// TODO: Loader</p>
+      </Layout>
+    );
+  }
 
   return (
     <>
-      <Bar />
-      <Layout title="Mails">
+      <Bar endereco={strSmartTrim(account)} />
+      <Layout title="Caixa de Entrada">
         <Div
           className="container my-2 px-3 px-md-0"
           style={{ minHeight: "100vh", paddingTop: "50px" }}
           height="100%"
           widthmd="30rem"
         >
-          {emails ? (
-            <>
-              <SearchBar />
-            </>
-          ) : (
-            <></>
-          )}
+          {emails && <SearchBar />}
 
           {emails ? (
             <>
-              {emails.map((email, index) => (
-                <Email
-                  key={index}
-                  title={email.title}
-                  subject={email.subject}
-                  date={email.date}
-                />
-              ))}
+              {emails
+                .sort((a, b) => b.date - a.date)
+                .map((email, index) => (
+                  <Email
+                    key={index}
+                    title={strSmartTrim(email.tx, 20)}
+                    subject={email.subject}
+                    date={email.date.toLocaleString()}
+                  />
+                ))}
             </>
           ) : (
             <>
@@ -94,7 +100,7 @@ function Mail() {
 
 export default Mail;
 
-export function Bar() {
+export function Bar({ endereco, naoLidasCount }) {
   return (
     <>
       <nav className="navbar blur-navbar fixed-top">
@@ -113,12 +119,14 @@ export function Bar() {
           </Div>
 
           <Div className="d-flex">
-            <h5 className="mb-0 mx-1">Emails</h5>
-            <h7 className="mb-0 text-pink">3365</h7>
+            <h5 className="mb-0 mx-1">Emails ({endereco})</h5>
+            {naoLidasCount && (
+              <h7 className="mb-0 text-pink">{naoLidasCount}</h7>
+            )}
           </Div>
 
           <Div className="d-flex">
-            <Link href="/mail/123">
+            <Link href="/mail/new">
               <Btn
                 fs="18px"
                 className="mb-0 click btn btn-outline-light py-1 px-2"
@@ -149,7 +157,7 @@ export function SearchBar() {
 }
 
 export function Email({ title, subject, date }) {
-  const press = { backgroundColor: "#131313", border: "1px solid #5d5fec"}
+  const press = { backgroundColor: "#131313", border: "1px solid #5d5fec" };
   return (
     <>
       <Div

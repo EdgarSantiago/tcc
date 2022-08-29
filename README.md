@@ -9,12 +9,12 @@
 
 ### Metamask
 
-- [ ] Acessar conta/endereço primário do usuário
-- [ ] Carregar da rede ethereum os e-mails do usuário
+- [x] Acessar conta/endereço primário do usuário
+- [x] Carregar da rede ethereum os e-mails do usuário
 - [ ] Integração com IPFS (ainda checando se será possível no nosso contexto)
-- [ ] Criar payload de e-mail contendo destinatário, assunto, corpo e link de anexo (caso tenha)
+- [x] Criar payload de e-mail contendo destinatário, assunto, corpo e link de anexo (caso tenha)
 - [ ] Criptografar payload de e-mail usando o endereço do usuário
-- [ ] Enviar transação para destinatário com payload de e-mail completo para a rede ethereum
+- [x] Enviar transação para destinatário com payload de e-mail completo para a rede ethereum
 
 #### Cor primária: `#EC5DB5`
 
