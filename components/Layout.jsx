@@ -9,7 +9,7 @@ const variants = {
 };
 
 function Layout({ children, title }) {
-  const t = `${title} - Ecrypto`;
+  const t = `${title} - ECrypto`;
   return (
     <Div
       initial="hidden"
@@ -25,7 +25,6 @@ function Layout({ children, title }) {
           </Head>
         )}
         {children}
-
       </>
     </Div>
   );
