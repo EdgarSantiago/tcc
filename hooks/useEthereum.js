@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from "react";
 import { useRouter } from "next/router";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 export function useEthereum() {
   const router = useRouter();
@@ -10,13 +10,13 @@ export function useEthereum() {
 
   const logar = (page) => {
     if (typeof ethereum === "undefined") {
-      // TODO: fazer um alerta mais bonito. modal, swal fire (?)
       return Swal.fire({
-        title: 'Erro!',
-        text: 'Você precisa instalar a MetaMask para poder fazer login.',
-        background: '#222121',
+        title: "Erro!",
+        text: "Você precisa instalar a MetaMask para poder fazer login.",
+        background: "#222121",
         color: "#fafafa",
-        confirmButtonText: '<a class="text-decoration-none text-white" href="https://metamask.io/download/">Instalar</a> ',
+        confirmButtonText:
+          '<a class="text-decoration-none text-white" href="https://metamask.io/download/">Instalar</a> ',
       });
     }
 
@@ -28,12 +28,11 @@ export function useEthereum() {
 
   const enviar = (to, subject, body, value) => {
     if (typeof ethereum === "undefined" || typeof account === "undefined") {
-      // TODO: fazer um alerta mais bonito. modal, swal fire (?)
       return Swal.fire({
-        title: 'Erro!',
-        text: 'Você precisa estar logado para poder enviar um e-mail.',
-        background: '#222121',
-        color: "#fafafa"
+        title: "Erro!",
+        text: "Você precisa estar logado para poder enviar um e-mail.",
+        background: "#222121",
+        color: "#fafafa",
       });
     }
 
@@ -59,13 +58,14 @@ export function useEthereum() {
         ],
       })
       .then((tx) => {
-        // TODO: fazer um alerta mais bonito. modal, swal fire (?)
+        // TODO: dar opção para usuário "Deseja abrir na etherscan?"
+        // se sim, abrir a url: `https://goerli.etherscan.io/tx/${tx}`
         Swal.fire({
-          icon: 'success',
-          title: 'Sucesso!',
-          text: 'Email enviado com sucesso!',
-          background: '#222121',
-          color: "#fafafa"
+          icon: "success",
+          title: "Sucesso!",
+          text: "Email enviado com sucesso!",
+          background: "#222121",
+          color: "#fafafa",
         });
         router.replace("/mail");
       });

@@ -4,7 +4,6 @@ import { Btn, Div } from "../styles/Elements";
 import { GiFox } from "react-icons/gi";
 
 function Navbar() {
-  
   const { logar } = useEthereum();
 
   return (
@@ -22,7 +21,11 @@ function Navbar() {
             <h2 className="mb-0 click text-pink">Ecrypto</h2>
           </Link>
 
-          <Btn bg="#EC5DB5" className="btn btn-light py-1" onClick={logar}>
+          <Btn
+            bg="#EC5DB5"
+            className="btn btn-light py-1"
+            onClick={() => logar("/mail")}
+          >
             Sign In
             <GiFox />
           </Btn>

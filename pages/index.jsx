@@ -97,7 +97,6 @@ export default function Home() {
         <hr className="hr" />
         <hr className="hr" />
 
-
         <Section>
           <Div className="container py-5" height="100%" widthmd={width}>
             <Div
@@ -181,7 +180,7 @@ export default function Home() {
                   className="btn btn-light px-4 py-2"
                   fs="20px"
                   br="15px"
-                  onClick={logar}
+                  onClick={() => logar("/mail")}
                 >
                   Sign In with MetaMask
                   <GiFox />

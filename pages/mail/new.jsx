@@ -1,8 +1,7 @@
 import { useEthereum } from "../../hooks/useEthereum";
 import { Btn, Div, Input } from "../../styles/Elements";
 import { RiSendPlaneLine } from "react-icons/ri";
-import Swal from 'sweetalert2'
-
+import Swal from "sweetalert2";
 
 import {
   AiOutlineReload,
@@ -81,19 +80,18 @@ export default OneMail;
 export function Bar({ enviar, destinatario, assunto, corpo, value }) {
   const handleEnviar = () => {
     if (!destinatario) {
-      // TODO: fazer um alerta mais bonito. modal, swal fire (?)
       return Swal.fire({
-        icon: 'error',
-        text: 'Destinatário não informado!',
-        background: '#222121',
+        icon: "error",
+        text: "Destinatário não informado!",
+        background: "#222121",
         color: "#fafafa",
       });
     }
     if (!destinatario.startsWith("0x") || destinatario.length !== 42) {
       return Swal.fire({
-        icon: 'error',
-        text: 'Destinatário inválido. Por favor verifique o endereço.',
-        background: '#222121',
+        icon: "error",
+        text: "Destinatário inválido. Por favor verifique o endereço.",
+        background: "#222121",
         color: "#fafafa",
       });
     }
