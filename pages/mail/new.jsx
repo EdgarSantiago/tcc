@@ -2,6 +2,7 @@ import { useEthereum } from "../../hooks/useEthereum";
 import { Btn, Div, Input } from "../../styles/Elements";
 import { RiSendPlaneLine } from "react-icons/ri";
 import Swal from "sweetalert2";
+import { Buffer } from "buffer";
 
 import {
   AiOutlineReload,
@@ -11,7 +12,7 @@ import {
 } from "react-icons/ai";
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 function OneMail() {
   const { ethereum, account, logar, enviar } = useEthereum();
@@ -78,6 +79,38 @@ function OneMail() {
 export default OneMail;
 
 export function Bar({ enviar, destinatario, assunto, corpo, value }) {
+  const [shouldSend, setShouldSend] = useState(false);
+  const [attachmentsUpdate, setAttachmentsUpdate] = useState(0);
+
+  function uploadAttachments() {
+    window.attachments = [];
+
+    const authorization = `Basic ${Buffer.from(
+      "2E2QnnYtY7VN537QupTQiOnODXR:e28a94629aad4cf1f2b80a9fbd8501c8"
+    ).toString("base64")}`;
+
+    const ipfs = window.IpfsHttpClient.create({
+      host: "ipfs.infura.io",
+      port: 5001,
+      protocol: "https",
+      headers: { authorization },
+    });
+
+    const anexos = document.getElementById("attachment");
+    for (const anexo of anexos.files) {
+      const reader = new FileReader();
+      reader.onloadend = function () {
+        const buf = Buffer(reader.result);
+        ipfs.add(buf).then((res) => {
+          window.attachments.push(res.path);
+          setAttachmentsUpdate(Math.random());
+        });
+      };
+
+      reader.readAsArrayBuffer(anexo);
+    }
+  }
+
   const handleEnviar = () => {
     if (!destinatario) {
       return Swal.fire({
@@ -87,6 +120,7 @@ export function Bar({ enviar, destinatario, assunto, corpo, value }) {
         color: "#fafafa",
       });
     }
+
     if (!destinatario.startsWith("0x") || destinatario.length !== 42) {
       return Swal.fire({
         icon: "error",
@@ -96,8 +130,20 @@ export function Bar({ enviar, destinatario, assunto, corpo, value }) {
       });
     }
 
-    enviar(destinatario, assunto, corpo, value);
+    uploadAttachments();
+    setShouldSend(true);
   };
+
+  useEffect(() => {
+    console.log(window.attachments, window.attachments?.length);
+    if (shouldSend) {
+      const anexos = document.getElementById("attachment");
+      if (anexos.files.length === window.attachments.length) {
+        setShouldSend(false);
+        enviar(destinatario, assunto, corpo, value, window.attachments);
+      }
+    }
+  }, [shouldSend, attachmentsUpdate]);
 
   return (
     <>
@@ -146,10 +192,12 @@ export function InputBar({ title, type, pHolder, setValue }) {
             {title}
           </Btn>
           <Input
+            id={type === "file" ? "attachment" : ""}
             type={type}
             className="form-control"
             placeholder={pHolder}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={type !== "file" ? (e) => setValue(e.target.value) : null}
+            multiple={type === "file" ? true : false}
           />
         </div>
       </Div>
