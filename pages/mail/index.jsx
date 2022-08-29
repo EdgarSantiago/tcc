@@ -64,7 +64,7 @@ function Mail() {
       <Layout title="Caixa de Entrada">
         <Div
           className="container my-2 px-3 px-md-0"
-          style={{ minHeight: "100vh", paddingTop: "50px" }}
+          style={{ paddingTop: "50px" }}
           height="100%"
           widthmd="30rem"
         >
@@ -76,9 +76,10 @@ function Mail() {
                 .sort((a, b) => b.date - a.date)
                 .map((email, index) => (
                   <Email
+
                     key={index}
-                    subject={strSmartTrim(email.tx, 10)}
-                    title={email.subject}
+                    id={email.tx}
+                    subject={email.subject}
                     date={email.date.toLocaleString()}
                   />
                 ))}
@@ -156,10 +157,11 @@ export function SearchBar() {
   );
 }
 
-export function Email({ title, subject, date }) {
-  const press = { backgroundColor: "#131313", border: "1px solid #5d5fec" };
+export function Email({ id, subject, date }) {
+  const press = { backgroundColor: "#131313", border: "1px solid #5d5fec" }; 
   return (
     <>
+    <Link href={"/mail/" + id}>
       <Div
         onContextMenu={(e) => e.preventDefault()}
         whileHover={press}
@@ -170,14 +172,15 @@ export function Email({ title, subject, date }) {
       >
 
         <Div className="col-6 col-md-8 px-md-0">
-          <h5 className="mb-1 text-pink">{title}</h5>
-          <h6 className="mb-0 text-white2"><Color>from: </Color> {subject}</h6>
+          <h5 className="mb-1 text-pink">{subject}</h5>
+          <h6 className="mb-0 text-white2"><Color>from: </Color> {strSmartTrim(id, 10)}</h6>
         </Div>
 
         <Div className="col-6 col-md-4 px-1 mb-3 text-end">
           <p className="mb-1">{date}</p>
         </Div>
       </Div>
+      </Link>
     </>
   );
 }

@@ -49,7 +49,7 @@ function OneMail() {
       <Layout title="Escrever novo e-mail">
         <Div
           className="container my-2 px-3 px-md-0"
-          style={{ minHeight: "100vh", paddingTop: "50px" }}
+          style={{ paddingTop: "50px" }}
           height="100%"
           widthmd="30rem"
         >
