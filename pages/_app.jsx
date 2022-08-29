@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Script from "next/script";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import NextNProgress from "nextjs-progressbar";
 
 if (typeof window !== "undefined") {
   window.history.scrollRestoration = "manual";
@@ -25,6 +26,14 @@ function MyApp({ Component, pageProps, router }) {
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.5/web3.min.js" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.0/ethers.umd.min.js" />
       <Script src="https://cdn.jsdelivr.net/npm/ipfs-http-client/dist/index.min.js" />
+      
+      <NextNProgress
+        color="#5d5fec"
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={3}
+        showOnShallow={true}
+      />
 
       <AnimatePresence
         exitBeforeEnter

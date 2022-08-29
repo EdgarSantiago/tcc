@@ -4,7 +4,7 @@
 
 - [x] Home - landing, info sobre o projeto e botão de logar
 - [x] `mail` - caixa de entrada, lista de emails
-- [ ] `mail/:tx` - tela de detalhe de um email, assunto, corpo e anexos do email
+- [x] `mail/:tx` - tela de detalhe de um email, assunto, corpo e anexos do email
 - [x] `mail/send` - tela de escrever um email, campo de input (destinatario e anexos), assunto e corpo
 
 ### Metamask

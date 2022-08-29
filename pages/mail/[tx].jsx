@@ -49,7 +49,7 @@ const Email = () => {
               aliqua laboris culpa consequat.
             </p>
             <p className="mb-0">
-              <Color>Anexos:</Color> ["img1", img2, arc1]
+              <Color>Anexos:</Color> files
             </p>
           </Div>
           <Div className="row justify-content-start align-items-center">
