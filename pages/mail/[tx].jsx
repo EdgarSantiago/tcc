@@ -7,10 +7,55 @@ import { strSmartTrim } from "../../utils/string";
 import { RiSendPlaneLine } from "react-icons/ri";
 import { AiOutlineClose, AiOutlineRollback } from "react-icons/ai";
 import { HiMenuAlt1, HiPencil } from "react-icons/hi";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { useEthereum } from "../../hooks/useEthereum";
+import Image from "next/image";
 
 const Email = () => {
+  const { ethereum, account, logar } = useEthereum();
+  const [email, setEmail] = useState({});
+
   const router = useRouter();
   const { tx } = router.query;
+
+  useEffect(() => {
+    if (typeof account !== "undefined") {
+      const provider = new ethers.providers.EtherscanProvider(
+        "goerli",
+        "X56U4HDNT7SI7GS39BI2Q8RXDM6BR3JG2C"
+      );
+      provider
+        .getTransaction(tx)
+        .then((tx) => {
+          const dataObj = JSON.parse(Web3.utils.toUtf8(tx.data));
+          if (
+            dataObj.type == "mail" &&
+            tx.to.toLowerCase() == account.toLowerCase()
+          ) {
+            dataObj.tx = tx.hash;
+            dataObj.date = new Date(tx.timestamp * 1000);
+          }
+          console.log(dataObj);
+          console.log(dataObj.attachments);
+          setEmail(dataObj);
+        })
+        .catch(console.error);
+    }
+  }, [account]);
+
+  useLayoutEffect(() => {
+    if (typeof ethereum !== "undefined" && typeof account === "undefined") {
+      logar("/mail/" + tx);
+    }
+  }, [ethereum, account]);
+
+  if (typeof ethereum === "undefined") {
+    return (
+      <Layout title={"Carregando... "}>
+        <p style={{ textAlign: "center" }}>TODO: Loader</p>
+      </Layout>
+    );
+  }
 
   return (
     <>
@@ -35,32 +80,35 @@ const Email = () => {
             }}
           >
             <p className="mb-0">
-              <Color>Assunto:</Color> Algum assunto
+              <Color>Assunto:</Color> {email.subject}
             </p>
             <p className="mb-0">
-              <Color>De:</Color> {strSmartTrim(tx, 15)}
+              <Color>De:</Color> {strSmartTrim(email.tx, 10)}
             </p>
             <p className="mb-0">
-              <Color>Corpo:</Color> Sint occaecat commodo ullamco fugiat. Veniam
-              incididunt ullamco et ex aliquip sunt esse commodo veniam.
-              Occaecat ipsum eu commodo dolor deserunt aute commodo aute
-              officia. Ipsum occaecat tempor sint tempor qui nostrud ut fugiat
-              cupidatat enim. Elit in ullamco enim eiusmod. Reprehenderit tempor
-              aliqua laboris culpa consequat.
+              <Color>Corpo:</Color> {email.body}
             </p>
-            <p className="mb-0">
-              <Color>Anexos:</Color> files
-            </p>
+            {email.attachments ? (
+              <>
+                <p className="mb-0">
+                  <Color>Anexos:</Color>
+                  {email.attachments.map((attachs) => (
+                    <Image height="50px" width="50px" src={"https://ipfs.io/ipfs/" + attachs}/>
+                  ))}
+                </p>
+              </>
+            ) : (
+              <></>
+            )}
           </Div>
           <Div className="row justify-content-start align-items-center">
-              <Btn className="btn mt-1">Responder</Btn>
-              <Link href={`https://goerli.etherscan.io/tx/${tx}`}>
+            <Btn className="btn mt-1">Responder</Btn>
+            <Link href={`https://goerli.etherscan.io/tx/${tx}`}>
               <Btn className="btn mt-1">Abrir na EtherScan</Btn>
-              </Link>
-              <Link href={`/mail`}>
+            </Link>
+            <Link href={`/mail`}>
               <Btn className="btn mt-1">Voltar</Btn>
-              </Link>
-
+            </Link>
           </Div>
         </Div>
       </Layout>

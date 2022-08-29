@@ -6,6 +6,8 @@ import { GiFox } from "react-icons/gi";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import { Btn, Color, Div, Section } from "../styles/Elements";
+import React, {useEffect} from 'react'
+import Swal from "sweetalert2";
 
 export default function Home() {
   const width = "52rem";
@@ -13,6 +15,37 @@ export default function Home() {
   const purple = "#9567d1";
 
   const { logar } = useEthereum();
+
+  useEffect(() => {
+    if (navigator.userAgent.toLowerCase().indexOf("android") > -1) {
+      Swal.fire({
+        icon: "warning",
+        title: "Atenção",
+        text: "Para usar nosso email em mobile utilize Brave Browser",
+        background: "#222121",
+        color: "#fafafa",
+        showCancelButton: true,
+        cancelButtonText:'Cancelar',
+        cancelButtonColor: '#d33',
+        confirmButtonText:
+        `<a class="text-decoration-none text-white" href="https://brave.com/">Instalar Brave Browser</a>`
+      });
+    }else if(navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
+      Swal.fire({
+        icon: "warning",
+        title: "Atenção",
+        text: "Para usar nosso email em mobile utilize Brave Browser",
+        background: "#222121",
+        color: "#fafafa",
+        showCancelButton: true,
+        cancelButtonText:'Cancelar',
+        cancelButtonColor: '#d33',
+        confirmButtonText:
+        `<a class="text-decoration-none text-white" href="https://brave.com/">Instalar Brave Browser</a>`
+      });
+    }
+  }, []);
+
 
   return (
     <>
@@ -179,7 +212,6 @@ export default function Home() {
                   color="#222121"
                   className="btn btn-light px-4 py-2"
                   fs="20px"
-                  br="15px"
                   onClick={() => logar("/mail")}
                 >
                   Sign In with MetaMask
