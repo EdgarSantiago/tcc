@@ -9,7 +9,7 @@
 
 ### Metamask
 
-- [ ] Acessar conta/endereço primário do usuário
+- [x] Acessar conta/endereço primário do usuário
 - [ ] Carregar da rede ethereum os e-mails do usuário
 - [ ] Integração com IPFS (ainda checando se será possível no nosso contexto)
 - [ ] Criar payload de e-mail contendo destinatário, assunto, corpo e link de anexo (caso tenha)
