@@ -77,7 +77,7 @@ function Mail() {
                 .map((email, index) => (
                   <Email
                     key={index}
-                    subject={strSmartTrim(email.tx, 20)}
+                    subject={strSmartTrim(email.tx, 10)}
                     title={email.subject}
                     date={email.date.toLocaleString()}
                   />
@@ -164,18 +164,18 @@ export function Email({ title, subject, date }) {
         onContextMenu={(e) => e.preventDefault()}
         whileHover={press}
         whileTap={press}
-        className="row align-items-center rounded click mb-1 cancel-menu px-2"
-        height="70px"
+        className="row align-items-center rounded click mb-1 cancel-menu px-2 py-2"
+        height="100%"
         border="1px solid #fafafa30"
       >
 
         <Div className="col-6 col-md-8 px-md-0">
-          <h5 className="mb-0 text-pink">{title}</h5>
+          <h5 className="mb-1 text-pink">{title}</h5>
           <h6 className="mb-0 text-white2"><Color>from: </Color> {subject}</h6>
         </Div>
 
         <Div className="col-6 col-md-4 px-1 mb-3 text-end">
-          <p>{date}</p>
+          <p className="mb-1">{date}</p>
         </Div>
       </Div>
     </>

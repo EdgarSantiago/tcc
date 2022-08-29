@@ -63,9 +63,14 @@ export function useEthereum() {
         Swal.fire({
           icon: "success",
           title: "Sucesso!",
-          text: "Email enviado com sucesso!",
+          text: "Email enviado com sucesso, deseja abrir na etherscan ?",
           background: "#222121",
           color: "#fafafa",
+          showCancelButton: true,
+          cancelButtonText:'Cancelar',
+          cancelButtonColor: '#d33',
+          confirmButtonText:
+          `<a class="text-decoration-none text-white" href="https://goerli.etherscan.io/tx/${tx}">Abrir na etherscan</a>`
         });
         router.replace("/mail");
       });
