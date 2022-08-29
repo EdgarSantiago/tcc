@@ -14,11 +14,11 @@ function Mail() {
   useEffect(() => {
     if (typeof account !== "undefined") {
       const provider = new ethers.providers.EtherscanProvider(
-        "ropsten",
+        "goerli",
         "X56U4HDNT7SI7GS39BI2Q8RXDM6BR3JG2C"
       );
       provider
-        .getHistory("0x96D7604248825Fb8dc7BdE1f994DAd75D8405349")
+        .getHistory(account)
         .then((txs) => {
           const parsedEmails = [];
 
@@ -27,10 +27,11 @@ function Mail() {
               const dataObj = JSON.parse(Web3.utils.toUtf8(tx.data));
 
               if (
-                dataObj.t == "mail" &&
-                tx.to.toLowerCase() ==
-                  "0x96D7604248825Fb8dc7BdE1f994DAd75D8405349".toLowerCase() //account.toLowerCase()
+                dataObj.type == "mail" &&
+                tx.to.toLowerCase() == account.toLowerCase()
               ) {
+                dataObj.tx = tx.hash;
+                dataObj.date = new Date(tx.timestamp * 1000);
                 parsedEmails.push(dataObj);
               }
             } catch {}
@@ -71,14 +72,16 @@ function Mail() {
 
           {emails ? (
             <>
-              {emails.map((email, index) => (
-                <Email
-                  key={index}
-                  title={email.title}
-                  subject={email.subject}
-                  date={email.date}
-                />
-              ))}
+              {emails
+                .sort((a, b) => b.date - a.date)
+                .map((email, index) => (
+                  <Email
+                    key={index}
+                    title={strSmartTrim(email.tx, 20)}
+                    subject={email.subject}
+                    date={email.date.toLocaleString()}
+                  />
+                ))}
             </>
           ) : (
             <>
