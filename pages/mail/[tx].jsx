@@ -52,7 +52,7 @@ const Email = () => {
   if (typeof ethereum === "undefined") {
     return (
       <Layout title={"Carregando... "}>
-        <p style={{ textAlign: "center" }}>TODO: Loader</p>
+        <p style={{ textAlign: "center" }}>Carregando...</p>
       </Layout>
     );
   }
@@ -94,7 +94,11 @@ const Email = () => {
                   <Color>Anexos:</Color>
                   {email.attachments.map((attachs, index) => (
                     <div key={index}>
-                      <Image height="50px" width="50px" src={"https://ipfs.io/ipfs/" + attachs}/>
+                      <Image
+                        height="50px"
+                        width="50px"
+                        src={"https://ipfs.io/ipfs/" + attachs}
+                      />
                     </div>
                   ))}
                 </p>

@@ -31,7 +31,7 @@ function OneMail() {
   if (typeof ethereum === "undefined") {
     return (
       <Layout title={"Carregando..."}>
-        <p style={{ textAlign: "center" }}>TODO: Loader</p>
+        <p style={{ textAlign: "center" }}>Carregando...</p>
       </Layout>
     );
   }
