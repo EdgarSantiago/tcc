@@ -26,7 +26,8 @@ function MyApp({ Component, pageProps, router }) {
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.5/web3.min.js" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.0/ethers.umd.min.js" />
       <Script src="https://cdn.jsdelivr.net/npm/ipfs-http-client/dist/index.min.js" />
-      
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" />
+
       <NextNProgress
         color="#5d5fec"
         startPosition={0.3}

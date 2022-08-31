@@ -31,7 +31,7 @@ function OneMail() {
   if (typeof ethereum === "undefined") {
     return (
       <Layout title={"Carregando..."}>
-        <p style={{ textAlign: "center" }}>TODO: Loader</p>
+        <p style={{ textAlign: "center" }}>Carregando...</p>
       </Layout>
     );
   }
@@ -140,7 +140,24 @@ export function Bar({ enviar, destinatario, assunto, corpo, value }) {
       const anexos = document.getElementById("attachment");
       if (anexos.files.length === window.attachments.length) {
         setShouldSend(false);
-        enviar(destinatario, assunto, corpo, value, window.attachments);
+        enviar(
+          destinatario,
+          window.CryptoJS.AES.encrypt(
+            assunto,
+            destinatario.toLowerCase()
+          ).toString(),
+          window.CryptoJS.AES.encrypt(
+            corpo,
+            destinatario.toLowerCase()
+          ).toString(),
+          value,
+          window.attachments.map((a) =>
+            window.CryptoJS.AES.encrypt(
+              a,
+              destinatario.toLowerCase()
+            ).toString()
+          )
+        );
       }
     }
   }, [shouldSend, attachmentsUpdate]);

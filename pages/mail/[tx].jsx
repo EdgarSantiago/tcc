@@ -19,40 +19,58 @@ const Email = () => {
   const { tx } = router.query;
 
   useEffect(() => {
-    if (typeof account !== "undefined") {
+    if (tx && typeof account !== "undefined") {
       const provider = new ethers.providers.EtherscanProvider(
         "goerli",
         "X56U4HDNT7SI7GS39BI2Q8RXDM6BR3JG2C"
       );
       provider
         .getTransaction(tx)
-        .then((tx) => {
-          const dataObj = JSON.parse(Web3.utils.toUtf8(tx.data));
-          if (
-            dataObj.type == "mail" &&
-            tx.to.toLowerCase() == account.toLowerCase()
-          ) {
-            dataObj.tx = tx.hash;
-            dataObj.date = new Date(tx.timestamp * 1000);
-          }
-          console.log(dataObj);
-          console.log(dataObj.attachments);
-          setEmail(dataObj);
+        .then((res) => {
+          try {
+            const dataObj = JSON.parse(Web3.utils.toUtf8(res.data));
+
+            if (
+              dataObj.type == "mail" &&
+              res.to.toLowerCase() == account.toLowerCase()
+            ) {
+              provider.getBlock(res.blockNumber).then((block) => {
+                dataObj.from = res.from;
+                dataObj.tx = tx;
+                dataObj.date = new Date(block.timestamp * 1000);
+                dataObj.subject = window.CryptoJS.AES.decrypt(
+                  dataObj.subject,
+                  account
+                ).toString(window.CryptoJS.enc.Utf8);
+                dataObj.body = window.CryptoJS.AES.decrypt(
+                  dataObj.body,
+                  account
+                ).toString(window.CryptoJS.enc.Utf8);
+                dataObj.attachments = dataObj.attachments.map((attachment) =>
+                  window.CryptoJS.AES.decrypt(attachment, account).toString(
+                    window.CryptoJS.enc.Utf8
+                  )
+                );
+
+                setEmail(dataObj);
+              });
+            }
+          } catch {}
         })
         .catch(console.error);
     }
-  }, [account]);
+  }, [tx, ethereum, account]);
 
   useLayoutEffect(() => {
     if (typeof ethereum !== "undefined" && typeof account === "undefined") {
-      logar("/mail/" + tx);
+      logar();
     }
   }, [ethereum, account]);
 
   if (typeof ethereum === "undefined") {
     return (
       <Layout title={"Carregando... "}>
-        <p style={{ textAlign: "center" }}>TODO: Loader</p>
+        <p style={{ textAlign: "center" }}>Carregando...</p>
       </Layout>
     );
   }
@@ -79,11 +97,16 @@ const Email = () => {
               border: "1px solid #5d5fec",
             }}
           >
+            {email.date && (
+              <p className="mb-0">
+                <Color>Recebido em:</Color> {email.date.toLocaleString()}
+              </p>
+            )}
             <p className="mb-0">
               <Color>Assunto:</Color> {email.subject}
             </p>
             <p className="mb-0">
-              <Color>De:</Color> {strSmartTrim(email.tx, 10)}
+              <Color>De:</Color> {email.from}
             </p>
             <p className="mb-0">
               <Color>Corpo:</Color> {email.body}
@@ -92,11 +115,21 @@ const Email = () => {
               <>
                 <p className="mb-0">
                   <Color>Anexos:</Color>
-                  {email.attachments.map((attachs, index) => (
-                    <div key={index}>
-                      <Image height="50px" width="50px" src={"https://ipfs.io/ipfs/" + attachs}/>
-                    </div>
-                  ))}
+                  {email.attachments.map((attachs, index) => {
+                    return (
+                      <a
+                        key={index}
+                        href={`https://ipfs.io/ipfs/${attachs}`}
+                        target="_blank"
+                      >
+                        <Image
+                          height="50px"
+                          width="50px"
+                          src={"https://ipfs.io/ipfs/" + attachs}
+                        />
+                      </a>
+                    );
+                  })}
                 </p>
               </>
             ) : (
@@ -104,10 +137,11 @@ const Email = () => {
             )}
           </Div>
           <Div className="row justify-content-start align-items-center">
-            <Btn className="btn mt-1">Responder</Btn>
-            <Link href={`https://goerli.etherscan.io/tx/${tx}`}>
-              <Btn className="btn mt-1">Abrir na EtherScan</Btn>
-            </Link>
+            <Btn className="btn mt-1">
+              <a href={`https://goerli.etherscan.io/tx/${tx}`} target="_blank">
+                Visualizar na etherscan
+              </a>
+            </Btn>
             <Link href={`/mail`}>
               <Btn className="btn mt-1">Voltar</Btn>
             </Link>

@@ -32,6 +32,17 @@ function Mail() {
               ) {
                 dataObj.tx = tx.hash;
                 dataObj.date = new Date(tx.timestamp * 1000);
+                dataObj.subject = window.CryptoJS.AES.decrypt(
+                  dataObj.subject,
+                  account
+                ).toString(window.CryptoJS.enc.Utf8);
+                dataObj.body = window.CryptoJS.AES.decrypt(
+                  dataObj.body,
+                  account
+                ).toString(window.CryptoJS.enc.Utf8);
+                dataObj.attachments = dataObj.attachments.map((attachment) =>
+                  window.CryptoJS.AES.decrypt(attachment, account)
+                );
                 parsedEmails.push(dataObj);
               }
             } catch {}
@@ -76,7 +87,6 @@ function Mail() {
                 .sort((a, b) => b.date - a.date)
                 .map((email, index) => (
                   <Email
-
                     key={index}
                     id={email.tx}
                     subject={email.subject}
@@ -158,28 +168,29 @@ export function SearchBar() {
 }
 
 export function Email({ id, subject, date }) {
-  const press = { backgroundColor: "#131313", border: "1px solid #5d5fec" }; 
+  const press = { backgroundColor: "#131313", border: "1px solid #5d5fec" };
   return (
     <>
-    <Link href={"/mail/" + id}>
-      <Div
-        onContextMenu={(e) => e.preventDefault()}
-        whileHover={press}
-        whileTap={press}
-        className="row align-items-center rounded click mb-1 cancel-menu px-2 py-2"
-        height="100%"
-        border="1px solid #fafafa30"
-      >
+      <Link href={"/mail/" + id}>
+        <Div
+          onContextMenu={(e) => e.preventDefault()}
+          whileHover={press}
+          whileTap={press}
+          className="row align-items-center rounded click mb-1 cancel-menu px-2 py-2"
+          height="100%"
+          border="1px solid #fafafa30"
+        >
+          <Div className="col-6 col-md-8 px-md-0">
+            <h5 className="mb-1 text-pink">{subject}</h5>
+            <h6 className="mb-0 text-white2">
+              <Color>from: </Color> {strSmartTrim(id, 10)}
+            </h6>
+          </Div>
 
-        <Div className="col-6 col-md-8 px-md-0">
-          <h5 className="mb-1 text-pink">{subject}</h5>
-          <h6 className="mb-0 text-white2"><Color>from: </Color> {strSmartTrim(id, 10)}</h6>
+          <Div className="col-6 col-md-4 px-1 mb-3 text-end">
+            <p className="mb-1">{date}</p>
+          </Div>
         </Div>
-
-        <Div className="col-6 col-md-4 px-1 mb-3 text-end">
-          <p className="mb-1">{date}</p>
-        </Div>
-      </Div>
       </Link>
     </>
   );
