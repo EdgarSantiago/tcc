@@ -38,6 +38,10 @@ const Email = () => {
                 dataObj.from = res.from;
                 dataObj.tx = tx;
                 dataObj.date = new Date(block.timestamp * 1000);
+                dataObj.value = Web3.utils.fromWei(
+                  res.value.toString(),
+                  "ether"
+                );
                 dataObj.subject = window.CryptoJS.AES.decrypt(
                   dataObj.subject,
                   account
@@ -104,6 +108,9 @@ const Email = () => {
             )}
             <p className="mb-0">
               <Color>Assunto:</Color> {email.subject}
+            </p>
+            <p className="mb-0">
+              <Color>Valor:</Color> {email.value} ETH
             </p>
             <p className="mb-0">
               <Color>De:</Color> {email.from}
