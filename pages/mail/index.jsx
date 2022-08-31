@@ -34,14 +34,14 @@ function Mail() {
                 dataObj.date = new Date(tx.timestamp * 1000);
                 dataObj.subject = window.CryptoJS.AES.decrypt(
                   dataObj.subject,
-                  account
+                  account.toLowerCase()
                 ).toString(window.CryptoJS.enc.Utf8);
                 dataObj.body = window.CryptoJS.AES.decrypt(
                   dataObj.body,
-                  account
+                  account.toLowerCase()
                 ).toString(window.CryptoJS.enc.Utf8);
                 dataObj.attachments = dataObj.attachments.map((attachment) =>
-                  window.CryptoJS.AES.decrypt(attachment, account)
+                  window.CryptoJS.AES.decrypt(attachment, account.toLowerCase())
                 );
                 parsedEmails.push(dataObj);
               }
