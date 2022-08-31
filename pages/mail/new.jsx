@@ -182,7 +182,7 @@ export function Bar({ enviar, destinatario, assunto, corpo, value }) {
           </Div>
 
           <Div className="d-flex">
-            <h5 className="mb-0 mx-1">Write</h5>
+            <h5 className="mb-0 mx-1">Escrever</h5>
           </Div>
 
           <Div className="d-flex">

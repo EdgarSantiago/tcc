@@ -62,7 +62,7 @@ export function useEthereum() {
         Swal.fire({
           icon: "success",
           title: "Sucesso!",
-          text: "Email enviado com sucesso. Deseja visualizar na etherscan?",
+          text: "E-mail enviado com sucesso. Deseja visualizar na etherscan?",
           background: "#222121",
           color: "#fafafa",
           showCancelButton: true,

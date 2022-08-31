@@ -6,7 +6,7 @@ import { GiFox } from "react-icons/gi";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import { Btn, Color, Div, Section } from "../styles/Elements";
-import React, {useEffect} from 'react'
+import React, { useEffect } from "react";
 import Swal from "sweetalert2";
 
 export default function Home() {
@@ -25,12 +25,11 @@ export default function Home() {
         background: "#222121",
         color: "#fafafa",
         showCancelButton: true,
-        cancelButtonText:'Cancelar',
-        cancelButtonColor: '#d33',
-        confirmButtonText:
-        `<a class="text-decoration-none text-white" href="https://brave.com/">Instalar Brave Browser</a>`
+        cancelButtonText: "Cancelar",
+        cancelButtonColor: "#d33",
+        confirmButtonText: `<a class="text-decoration-none text-white" href="https://brave.com/">Instalar Brave Browser</a>`,
       });
-    }else if(navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
+    } else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
       Swal.fire({
         icon: "warning",
         title: "Atenção",
@@ -38,19 +37,17 @@ export default function Home() {
         background: "#222121",
         color: "#fafafa",
         showCancelButton: true,
-        cancelButtonText:'Cancelar',
-        cancelButtonColor: '#d33',
-        confirmButtonText:
-        `<a class="text-decoration-none text-white" href="https://brave.com/">Instalar Brave Browser</a>`
+        cancelButtonText: "Cancelar",
+        cancelButtonColor: "#d33",
+        confirmButtonText: `<a class="text-decoration-none text-white" href="https://brave.com/">Instalar Brave Browser</a>`,
       });
     }
   }, []);
 
-
   return (
     <>
       <Navbar />
-      <Layout title="Home">
+      <Layout title="Boas Vindas">
         <Section>
           <Div
             mt="55px"
@@ -64,24 +61,23 @@ export default function Home() {
             >
               <Div className="col-12 mb-0 mb-md-5">
                 <p className="mb-0">
-                  <Color value={blue}>Ecrypto</Color> is privacy by default
+                  <Color value={blue}>Ecrypto</Color> é foco em privacidade
                 </p>
                 <h1 className="display-4">
-                  Welcome to a better internet where{" "}
-                  <Color value={blue}>privacy and freedom come first</Color>
+                  Bem-vindo à uma melhor internet onde{" "}
+                  <Color value={blue}>
+                    privacidade e liberdade vem primeiro
+                  </Color>
                 </h1>
               </Div>
               <Div className="col-2 d-none d-md-block">
-                <p>Mail</p>
+                <p>E-mail</p>
               </Div>
               <Div className="col-2 d-none d-md-block">
                 <p>Blockchain</p>
               </Div>
               <Div className="col-2 d-none d-md-block">
-                <p>Cryptocurrency</p>
-              </Div>
-              <Div className="col-2 d-none d-md-block">
-                <p>Vpn</p>
+                <p>Criptomoeda</p>
               </Div>
             </Div>
           </Div>
@@ -94,12 +90,12 @@ export default function Home() {
             <Div className="row align-items-center" height="50vh">
               <Div className="col-12 col-md-10">
                 <h2 className="text-blue">
-                  With Ecrypto, your data belongs to you, not tech companies,
-                  governments, or hackers
+                  Com ECrypto, seus dados percentecem a você, não à empresas de
+                  tecnologia, governos ou hackers
                 </h2>
                 <p className="mb-0 text-white2">
-                  Our encrypted services help you fight for a better internet
-                  that is secure and private by default.
+                  Nosso serviço criptografado ajuda você a lutar por uma
+                  internet melhor que é segura e privada por padrão.
                 </p>
               </Div>
               <Div className="col-2"></Div>
@@ -115,12 +111,12 @@ export default function Home() {
               <Div className="col-2"></Div>
               <Div className="col-12 col-md-10">
                 <h2 className="text-blue">
-                  With Ecrypto, your data belongs to you, not tech companies,
-                  governments, or hackers
+                  Com ECrypto, seus dados percentecem a você, não à empresas de
+                  tecnologia, governos ou hackers
                 </h2>
                 <p className="mb-0 text-white2">
-                  Our encrypted services help you fight for a better internet
-                  that is secure and private by default.
+                  Nosso serviço criptografado ajuda você a lutar por uma
+                  internet melhor que é segura e privada por padrão.
                 </p>
               </Div>
             </Div>
@@ -138,13 +134,14 @@ export default function Home() {
             >
               <Div className="col-10 mb-0">
                 <h2 className="mb-3">
-                  <Color value={blue}>Your data,</Color>{" "}
-                  <Color value={purple}>your rules</Color>
+                  <Color value={blue}>Seus dados,</Color>{" "}
+                  <Color value={purple}>suas regras</Color>
                 </h2>
                 <h5 className="mb-0 text-white2">
-                  Ecrypto provides easy-to-use encrypted email, calendar, file
-                  storage, VPN, and much more, built on the principle of your
-                  data, your rules.
+                  ECrypto oferece serviço de troca de e-mails criptografado e
+                  fácil de usar, calendário, armazenamento de arquivos, envio de
+                  valores em criptomoedas, construido no princípio de seus
+                  dados, suas regras.
                 </h5>
               </Div>
             </Div>
@@ -158,32 +155,20 @@ export default function Home() {
           <Div className="container py-3" widthmd={width}>
             <Div className="row mb-4 text-center">
               <h3 className="text-blue">
-                Reasons why you <Color value={purple}>should</Color> use Ecrypto
+                Motivos de <Color value={purple}>por que</Color> usar ECrypto
               </h3>
             </Div>
             <Div className="row g-2 justify-content-center">
               <Div className="col-3 mx-2 text-center">
-                <p>Security</p>
+                <p>Segurança</p>
               </Div>
 
               <Div className="col-3 mx-2 text-center">
-                <p>Decentralized</p>
+                <p>Descentralizado</p>
               </Div>
 
               <Div className="col-3 mx-2 text-center">
-                <p>Prevention</p>
-              </Div>
-
-              <Div className="col-3 mx-2 text-center">
-                <p>Security</p>
-              </Div>
-
-              <Div className="col-3 mx-2 text-center">
-                <p>Decentralized</p>
-              </Div>
-
-              <Div className="col-3 mx-2 text-center">
-                <p>Prevention</p>
+                <p>Prevenção</p>
               </Div>
             </Div>
           </Div>
@@ -200,11 +185,11 @@ export default function Home() {
             >
               <Div className="col-12">
                 <h2 className="mb-0 text-blue">
-                  <Color value={purple}>Ecrypto</Color> is privacy
+                  <Color value={purple}>ECrypto</Color> é foco em privacidade
                 </h2>
-                <h2 className="mb-3 text-blue">Choose a better internet</h2>
+                <h2 className="mb-3 text-blue">Escolha uma internet melhor</h2>
                 <h4 className="mb-3 text-white2">
-                  Login now with your metamask account
+                  Logue-se agora com sua carteira
                 </h4>
 
                 <Btn
@@ -214,7 +199,7 @@ export default function Home() {
                   fs="20px"
                   onClick={() => logar("/mail")}
                 >
-                  Sign In with MetaMask
+                  Logar com MetaMask
                   <GiFox />
                 </Btn>
               </Div>

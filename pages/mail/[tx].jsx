@@ -78,7 +78,7 @@ const Email = () => {
   return (
     <>
       <Bar id={tx} />
-      <Layout title="email">
+      <Layout title="E-mail">
         <Div
           height="100%"
           widthmd="30rem"
@@ -173,7 +173,7 @@ export function Bar({ id }) {
           </Div>
 
           <Div className="d-flex">
-            <h5 className="mb-0 mx-1">Email {strSmartTrim(id, 10)} </h5>
+            <h5 className="mb-0 mx-1">E-mail {strSmartTrim(id, 10)} </h5>
           </Div>
 
           <Div className="d-flex">
