@@ -18,7 +18,7 @@ function Navbar() {
           height="40px"
         >
           <Link href="/">
-            <h2 className="mb-0 click text-pink">Ecrypto</h2>
+            <h2 className="mb-0 click text-pink">ECrypto</h2>
           </Link>
 
           <Btn
@@ -26,7 +26,7 @@ function Navbar() {
             className="btn btn-light py-1"
             onClick={() => logar("/mail")}
           >
-            Sign In
+            Entrar
             <GiFox />
           </Btn>
         </Div>

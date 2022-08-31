@@ -130,7 +130,7 @@ export function Bar({ endereco, naoLidasCount }) {
           </Div>
 
           <Div className="d-flex">
-            <h5 className="mb-0 mx-1">Emails ({endereco})</h5>
+            <h5 className="mb-0 mx-1">Entrada ({endereco})</h5>
             {naoLidasCount && (
               <h7 className="mb-0 text-pink">{naoLidasCount}</h7>
             )}
@@ -160,7 +160,7 @@ export function SearchBar() {
           <Btn className="btn btn-outline-light" type="button">
             <AiOutlineSearch />
           </Btn>
-          <Input type="text" className="form-control" placeholder="Search" />
+          <Input type="text" className="form-control" placeholder="Pesquisar" />
         </div>
       </Div>
     </>
@@ -183,7 +183,7 @@ export function Email({ id, subject, date }) {
           <Div className="col-6 col-md-8 px-md-0">
             <h5 className="mb-1 text-pink">{subject}</h5>
             <h6 className="mb-0 text-white2">
-              <Color>from: </Color> {strSmartTrim(id, 10)}
+              <Color>De: </Color> {strSmartTrim(id, 10)}
             </h6>
           </Div>
 
