@@ -68,7 +68,7 @@ export function useEthereum() {
           showCancelButton: true,
           cancelButtonText: "Não",
           cancelButtonColor: "#d33",
-          confirmButtonText: `<a class="text-decoration-none text-white" href="https://goerli.etherscan.io/tx/${tx}" target="_blank">Sim</a>`,
+          confirmButtonText: `<a class="text-decoration-none text-white" href="#" onclick='window.open("https://goerli.etherscan.io/tx/${tx}");return false;'>Sim</a>`,
         });
         router.replace("/mail");
       });

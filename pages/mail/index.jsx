@@ -32,6 +32,17 @@ function Mail() {
               ) {
                 dataObj.tx = tx.hash;
                 dataObj.date = new Date(tx.timestamp * 1000);
+                dataObj.subject = window.CryptoJS.AES.decrypt(
+                  dataObj.subject,
+                  account
+                ).toString(window.CryptoJS.enc.Utf8);
+                dataObj.body = window.CryptoJS.AES.decrypt(
+                  dataObj.body,
+                  account
+                ).toString(window.CryptoJS.enc.Utf8);
+                dataObj.attachments = dataObj.attachments.map((attachment) =>
+                  window.CryptoJS.AES.decrypt(attachment, account)
+                );
                 parsedEmails.push(dataObj);
               }
             } catch {}
@@ -53,7 +64,7 @@ function Mail() {
   if (typeof ethereum === "undefined") {
     return (
       <Layout title={"Carregando... "}>
-        <p style={{ textAlign: "center" }}>Carregando...</p>
+        <p style={{ textAlign: "center" }}>TODO: Loader</p>
       </Layout>
     );
   }
