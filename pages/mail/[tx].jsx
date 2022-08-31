@@ -128,6 +128,7 @@ const Email = () => {
                         key={index}
                         href={`https://ipfs.io/ipfs/${attachs}`}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <Image
                           height="50px"
@@ -145,7 +146,11 @@ const Email = () => {
           </Div>
           <Div className="row justify-content-start align-items-center">
             <Btn className="btn mt-1">
-              <a href={`https://goerli.etherscan.io/tx/${tx}`} target="_blank">
+              <a
+                href={`https://goerli.etherscan.io/tx/${tx}`}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Visualizar na etherscan
               </a>
             </Btn>
