@@ -1,14 +1,12 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { motion } from "framer-motion";
 
-
-
 export const GlobalStyles = createGlobalStyle`
     html, body {
       padding: 0;
       margin: 0;
       overflow-x: hidden !important;
-      background-color: #222121;
+      background-color: #222121 !important;
       color: #eee6e6
     }
 
@@ -42,7 +40,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #5d5fec;
+      background: #6d6ff7;
     }
 
     ::-webkit-scrollbar-thumb:hover {
@@ -54,6 +52,7 @@ export const GlobalStyles = createGlobalStyle`
 export const Div = styled(motion.div)`
   margin-top: ${(props) => props.mt || ""};
   padding-top: ${(props) => props.pt || ""};
+  padding-bottom: ${(props) => props.pb || ""};
   padding-left: ${(props) => props.pl || ""};
   padding-right: ${(props) => props.pr || ""};
   height: ${(props) => props.height || ""};
@@ -85,7 +84,7 @@ export const Color = styled(motion.span)`
   padding-top: ${(props) => props.pt || ""};
   padding-left: ${(props) => props.pl || ""};
   padding-right: ${(props) => props.pr || ""};
-  color: ${(props) => props.value || "#5d5fec"};
+  color: ${(props) => props.value || "#6d6ff7"};
   height: ${(props) => props.height || ""};
   width: ${(props) => props.width || ""};
   background-color: ${(props) => props.bg || ""};
@@ -104,14 +103,14 @@ export const Btn = styled(motion.button)`
   font-size: ${(props) => props.fs || ""};
   border: ${(props) => props.border || ""};
   border-bottom: ${(props) => props.bb || ""};
-  color: ${(props) => props.color || "#5d5fec"};
-  border: 1px solid #5d5fec;
+  color: ${(props) => props.color || "#6d6ff7"};
+  border: 1px solid #6d6ff7;
 
   background: linear-gradient(#140d12 0 0) padding-box,
-    linear-gradient(to right, #9c20aa, #9836a3, #5d5fec) border-box;
+    linear-gradient(to right, #9c20aa, #9836a3, #6d6ff7) border-box;
   border: 1px solid transparent;
   display: inline-block;
-  color: #5d5fec !important;
+  color: #6d6ff7 !important;
 
   :hover {
     color: #fafafa !important;
@@ -125,8 +124,6 @@ export const Btn = styled(motion.button)`
     outline: none;
     box-shadow: none;
   }
-
-  
 `;
 
 export const Input = styled(motion.input)`
@@ -138,25 +135,24 @@ export const Input = styled(motion.input)`
   background-color: ${(props) => props.bg || ""};
   position: ${(props) => props.position || ""};
   border-radius: ${(props) => props.br || ""};
-  color: #5d5fec !important;
-  border: 1px solid #5d5fec;
+  color: #6d6ff7 !important;
+  border: 1px solid #6d6ff7;
   background-color: #222121;
 
   :hover {
-    color: #5d5fec !important;
-    border: 1px solid #5d5fec;
+    color: #6d6ff7 !important;
+    border: 1px solid #6d6ff7;
     background-color: #131313;
   }
   :focus {
-    color: #5d5fec !important;
-    border: 1px solid #5d5fec;
+    color: #6d6ff7 !important;
+    border: 1px solid #6d6ff7;
     background-color: #131313;
     outline: none;
     box-shadow: none;
   }
   :checked {
     background-color: #131313;
-    border-color: #5d5fec;
+    border-color: #6d6ff7;
   }
- 
 `;

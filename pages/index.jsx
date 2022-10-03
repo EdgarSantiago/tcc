@@ -9,10 +9,13 @@ import { Btn, Color, Div, Section } from "../styles/Elements";
 import React, { useEffect } from "react";
 import Swal from "sweetalert2";
 
+import Particles from "react-particles";
+import ParticlesComponent from "../components/Particles";
+
 export default function Home() {
   const width = "52rem";
-  const blue = "#5d5fec";
-  const purple = "#9567d1";
+  const blue = "#6d6ff7";
+  const white = "#fafafa";
 
   const { logar } = useEthereum();
 
@@ -21,40 +24,38 @@ export default function Home() {
       Swal.fire({
         icon: "warning",
         title: "Atenção",
-        text: "Para usar nosso email em mobile utilize Brave Browser",
+        text: "Para usar nosso email utilize um desktop",
         background: "#222121",
         color: "#fafafa",
-        showCancelButton: true,
-        cancelButtonText: "Cancelar",
-        cancelButtonColor: "#d33",
-        confirmButtonText: `<a class="text-decoration-none text-white" href="https://brave.com/">Instalar Brave Browser</a>`,
       });
     } else if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1) {
       Swal.fire({
         icon: "warning",
         title: "Atenção",
-        text: "Para usar nosso email em mobile utilize Brave Browser",
+        text: "Para usar nosso email utilize um desktop",
         background: "#222121",
         color: "#fafafa",
-        showCancelButton: true,
-        cancelButtonText: "Cancelar",
-        cancelButtonColor: "#d33",
-        confirmButtonText: `<a class="text-decoration-none text-white" href="https://brave.com/">Instalar Brave Browser</a>`,
       });
     }
   }, []);
 
+  const variants = {
+    active: {
+      opacity: 1,
+      transition: { duration: 1 },
+    },
+    inactive: {
+      opacity: 0,
+    },
+  };
+
   return (
     <>
       <Navbar />
+      <ParticlesComponent />
       <Layout title="Boas Vindas">
-        <Section>
-          <Div
-            mt="55px"
-            className="container py-5"
-            height="100vh"
-            widthmd={width}
-          >
+        <Section variants={variants} initial="inactive" whileInView="active">
+          <Div mt="55px" className="container" height="100vh" widthmd={width}>
             <Div
               className="row align-items-center justify-content-center text-center"
               height="100%"
@@ -70,29 +71,21 @@ export default function Home() {
                   </Color>
                 </h1>
               </Div>
-              <Div className="col-2 d-none d-md-block">
-                <p>E-mail</p>
-              </Div>
-              <Div className="col-2 d-none d-md-block">
-                <p>Blockchain</p>
-              </Div>
-              <Div className="col-2 d-none d-md-block">
-                <p>Criptomoeda</p>
-              </Div>
             </Div>
           </Div>
         </Section>
         <hr className="hr" />
         <hr className="hr" />
 
-        <Section>
+        <Section variants={variants} initial="inactive" whileInView="active">
           <Div className="container" widthmd={width}>
-            <Div className="row align-items-center" height="50vh">
+            <Div className="row align-items-center" height="100vh">
               <Div className="col-12 col-md-10">
-                <h2 className="text-blue">
-                  Com ECrypto, seus dados percentecem a você, não à empresas de
-                  tecnologia, governos ou hackers
-                </h2>
+                <h1 className="text-blue">
+                  Com ECrypto,{" "}
+                  <Color value={white}>seus dados pertencem a você,</Color> não
+                  à empresas de técnologia, governos ou hackers
+                </h1>
                 <p className="mb-0 text-white2">
                   Nosso serviço criptografado ajuda você a lutar por uma
                   internet melhor que é segura e privada por padrão.
@@ -105,43 +98,22 @@ export default function Home() {
         <hr className="hr" />
         <hr className="hr" />
 
-        <Section>
-          <Div className="container" widthmd={width}>
-            <Div className="row align-items-center text-end" height="50vh">
-              <Div className="col-2"></Div>
-              <Div className="col-12 col-md-10">
-                <h2 className="text-blue">
-                  Com ECrypto, seus dados percentecem a você, não à empresas de
-                  tecnologia, governos ou hackers
-                </h2>
-                <p className="mb-0 text-white2">
-                  Nosso serviço criptografado ajuda você a lutar por uma
-                  internet melhor que é segura e privada por padrão.
-                </p>
-              </Div>
-            </Div>
-          </Div>
-        </Section>
-
-        <hr className="hr" />
-        <hr className="hr" />
-
-        <Section>
-          <Div className="container py-5" height="100%" widthmd={width}>
+        <Section variants={variants} initial="inactive" whileInView="active">
+          <Div className="container" height="100%" widthmd={width}>
             <Div
               className="row align-items-center justify-content-center text-center"
-              height="100%"
+              height="100vh"
             >
               <Div className="col-10 mb-0">
-                <h2 className="mb-3">
+                <h1 className="mb-3">
                   <Color value={blue}>Seus dados,</Color>{" "}
-                  <Color value={purple}>suas regras</Color>
-                </h2>
+                  <Color value={white}>suas regras</Color>
+                </h1>
                 <h5 className="mb-0 text-white2">
-                  ECrypto oferece serviço de troca de e-mails criptografado e
-                  fácil de usar, calendário, armazenamento de arquivos, envio de
-                  valores em criptomoedas, construido no princípio de seus
-                  dados, suas regras.
+                  ECrypto oferece serviço de troca de e-mails criptografado, com
+                  base em blockchain e fácil de usar, envio de valores em
+                  criptomoedas, construido no princípio de seus dados, suas
+                  regras.
                 </h5>
               </Div>
             </Div>
@@ -151,24 +123,48 @@ export default function Home() {
         <hr className="hr" />
         <hr className="hr" />
 
-        <Section>
-          <Div className="container py-3" widthmd={width}>
-            <Div className="row mb-4 text-center">
-              <h3 className="text-blue">
-                Motivos de <Color value={purple}>por que</Color> usar ECrypto
-              </h3>
-            </Div>
-            <Div className="row g-2 justify-content-center">
-              <Div className="col-3 mx-2 text-center">
-                <p>Segurança</p>
+        <Section variants={variants} initial="inactive" whileInView="active">
+          <Div
+            className="container text-center"
+            widthmd={width}
+            pt="25vh"
+            pb="25vh"
+          >
+            <Div className="row mt-auto g-2 justify-content-center align-items-center">
+              <h1 className="text-blue mb-5">
+                Motivos de <Color value={white}>por que</Color> usar ECrypto
+              </h1>
+              <Div className="col-3 mx-2 text-center border rounded p-2 bg-dark">
+                <p>
+                  <Color value={blue}>Segurança</Color>
+                </p>
+                <p>
+                  Nosso sistema tem a base blockchain que funciona como um banco
+                  de dados por meio do qual são feitas transações seguras,
+                  rastreáveis e descentralizadas.
+                </p>
               </Div>
 
-              <Div className="col-3 mx-2 text-center">
-                <p>Descentralizado</p>
+              <Div className="col-3 mx-2 text-center border rounded p-2 bg-dark">
+                <p>
+                  <Color value={blue}>Descentralizado</Color>
+                </p>
+                <p>
+                  Nosso sistema é baseado em blockchain, é baseado em um
+                  controle e verificação completamente descentralizados. Não
+                  armazenamos seus dados, eles ficam na blockchain.
+                </p>
               </Div>
 
-              <Div className="col-3 mx-2 text-center">
-                <p>Prevenção</p>
+              <Div className="col-3 mx-2 text-center border rounded p-2 bg-dark">
+                <p>
+                  <Color value={blue}>Prevenção</Color>
+                </p>
+                <p>
+                  As informações são criptografadas. A criptografia é a base das
+                  criptomoedas. Ela funciona como uma camada de segurança online
+                  que dificulta bastante qualquer tipo de fraude.
+                </p>
               </Div>
             </Div>
           </Div>
@@ -177,20 +173,20 @@ export default function Home() {
         <hr className="hr" />
         <hr className="hr" />
 
-        <Section>
-          <Div className="container py-5" height="100%" widthmd={width}>
+        <Section variants={variants} initial="inactive" whileInView="active">
+          <Div className="container" height="100%" widthmd={width}>
             <Div
               className="row align-items-center justify-content-center text-center"
-              height="100%"
+              height="100vh"
             >
               <Div className="col-12">
                 <h2 className="mb-0 text-blue">
-                  <Color value={purple}>ECrypto</Color> é foco em privacidade
+                  <Color value={white}>ECrypto</Color> é foco em privacidade
                 </h2>
                 <h2 className="mb-3 text-blue">Escolha uma internet melhor</h2>
-                <h4 className="mb-3 text-white2">
+                <h5 className="mb-3 text-white2">
                   Logue-se agora com sua carteira
-                </h4>
+                </h5>
 
                 <Btn
                   bg="#EC5DB5"
