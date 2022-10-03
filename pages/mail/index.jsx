@@ -1,7 +1,8 @@
 import { useEthereum } from "../../hooks/useEthereum";
 import { Btn, Color, Div, Input } from "../../styles/Elements";
 import { HiMenuAlt1, HiPencil } from "react-icons/hi";
-import { AiOutlineReload, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineLogout, AiOutlineSearch } from "react-icons/ai";
+
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import { useEffect, useLayoutEffect, useState } from "react";
@@ -10,6 +11,9 @@ import { strSmartTrim } from "../../utils/string";
 function Mail() {
   const { ethereum, account, logar } = useEthereum();
   const [emails, setEmails] = useState([]);
+  const [elFilter, setElFilter] = useState();
+
+  const [searchedEmail, setSearchedEmail] = useState();
 
   useEffect(() => {
     if (typeof account !== "undefined") {
@@ -47,8 +51,6 @@ function Mail() {
               }
             } catch {}
           }
-
-          console.log(parsedEmails);
           setEmails(parsedEmails);
         })
         .catch(console.error);
@@ -69,9 +71,15 @@ function Mail() {
     );
   }
 
+  const searchEmail = (e) => {
+    e.preventDefault;
+    console.log(e);
+    setElFilter(e);
+  };
+
   return (
     <>
-      <Bar endereco={strSmartTrim(account)} />
+      <Bar qtyEmails={emails.length} />
       <Layout title="Caixa de Entrada">
         <Div
           className="container my-2 px-3 px-md-0"
@@ -79,7 +87,7 @@ function Mail() {
           height="100%"
           widthmd="30rem"
         >
-          {emails && <SearchBar />}
+          {emails && <SearchBar search={searchEmail} />}
 
           {emails ? (
             <>
@@ -111,7 +119,7 @@ function Mail() {
 
 export default Mail;
 
-export function Bar({ endereco, naoLidasCount }) {
+export function Bar({ qtyEmails, naoLidasCount, endereco }) {
   return (
     <>
       <nav className="navbar blur-navbar fixed-top">
@@ -125,12 +133,12 @@ export function Bar({ endereco, naoLidasCount }) {
         >
           <Div className="d-flex">
             <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
-              <HiMenuAlt1 />
+              <AiOutlineLogout />
             </Btn>
           </Div>
 
           <Div className="d-flex">
-            <h5 className="mb-0 mx-1">Entrada ({endereco})</h5>
+            <h5 className="mb-0 mx-1">Entrada ({qtyEmails})</h5>
             {naoLidasCount && (
               <h7 className="mb-0 text-pink">{naoLidasCount}</h7>
             )}
@@ -152,7 +160,7 @@ export function Bar({ endereco, naoLidasCount }) {
   );
 }
 
-export function SearchBar() {
+export function SearchBar({ search }) {
   return (
     <>
       <Div className="row mb-1">
@@ -160,7 +168,12 @@ export function SearchBar() {
           <Btn className="btn btn-outline-light" type="button">
             <AiOutlineSearch />
           </Btn>
-          <Input type="text" className="form-control" placeholder="Pesquisar" />
+          <Input
+            onChange={(e) => search(e.target.value)}
+            type="text"
+            className="form-control"
+            placeholder="Pesquisar"
+          />
         </div>
       </Div>
     </>

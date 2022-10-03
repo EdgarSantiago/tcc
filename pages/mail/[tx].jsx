@@ -5,8 +5,8 @@ import Link from "next/link";
 import { strSmartTrim } from "../../utils/string";
 
 import { RiSendPlaneLine } from "react-icons/ri";
-import { AiOutlineClose, AiOutlineRollback } from "react-icons/ai";
-import { HiMenuAlt1, HiPencil } from "react-icons/hi";
+import { AiOutlineLogout, AiOutlineRollback } from "react-icons/ai";
+import { HiPencil } from "react-icons/hi";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useEthereum } from "../../hooks/useEthereum";
 import Image from "next/image";
@@ -181,7 +181,7 @@ export function Bar({ id }) {
         >
           <Div className="d-flex">
             <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
-              <HiMenuAlt1 />
+              <AiOutlineLogout />
             </Btn>
           </Div>
 
