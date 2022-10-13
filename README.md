@@ -2,7 +2,7 @@
 
 ### Ajustes finais
 
-- [ ] Adicionar funcionalidade à barra de pesquisa da caixa de entrada
+- [x] Adicionar funcionalidade à barra de pesquisa da caixa de entrada
 - [ ] Talvez adicionar um loader quando envia o e-mail, principalmente quando tem anexos.. já que tem que esperar fazer upload pro IPFS antes de abrir o popup da metamask
 - [ ] Checar/tratar o que fazer caso o anexo não possa ser exibido visualmente (imagem) ex: .mp3, .pdf, etc
 - [x] Traduzir o front para português

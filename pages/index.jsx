@@ -42,7 +42,7 @@ export default function Home() {
   const variants = {
     active: {
       opacity: 1,
-      transition: { duration: 1 },
+      transition: { duration: 1.5, type: "spring" },
     },
     inactive: {
       opacity: 0,

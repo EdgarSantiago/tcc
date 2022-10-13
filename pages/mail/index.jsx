@@ -11,9 +11,14 @@ import { strSmartTrim } from "../../utils/string";
 function Mail() {
   const { ethereum, account, logar } = useEthereum();
   const [emails, setEmails] = useState([]);
-  const [elFilter, setElFilter] = useState();
 
-  const [searchedEmail, setSearchedEmail] = useState();
+  const [elFilter, setElFilter] = useState();
+  const [filterText, setFilterText] = useState("");
+  const filteredItems = emails.filter((item) =>
+    item.subject.toLocaleLowerCase().includes(filterText)
+  );
+
+  const itemsToDisplay = filterText ? filteredItems : emails;
 
   useEffect(() => {
     if (typeof account !== "undefined") {
@@ -55,7 +60,8 @@ function Mail() {
         })
         .catch(console.error);
     }
-  }, [account]);
+    console.log(filteredItems);
+  }, [account, filterText]);
 
   useLayoutEffect(() => {
     if (typeof ethereum !== "undefined" && typeof account === "undefined") {
@@ -71,12 +77,6 @@ function Mail() {
     );
   }
 
-  const searchEmail = (e) => {
-    e.preventDefault;
-    console.log(e);
-    setElFilter(e);
-  };
-
   return (
     <>
       <Bar qtyEmails={emails.length} />
@@ -87,11 +87,28 @@ function Mail() {
           height="100%"
           widthmd="30rem"
         >
-          {emails && <SearchBar search={searchEmail} />}
+          {emails && (
+            <Div className="row mb-1">
+              <div className="input-group px-0">
+                <Btn className="btn btn-outline-light" type="button">
+                  <AiOutlineSearch />
+                </Btn>
+                <Input
+                  value={filterText}
+                  onChange={(e) =>
+                    setFilterText(e.target.value.toLocaleLowerCase())
+                  }
+                  type="text"
+                  className="form-control"
+                  placeholder="Pesquisar"
+                />
+              </div>
+            </Div>
+          )}
 
-          {emails ? (
+          {filteredItems ? (
             <>
-              {emails
+              {filteredItems
                 .sort((a, b) => b.date - a.date)
                 .map((email, index) => (
                   <Email
