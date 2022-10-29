@@ -131,10 +131,10 @@ export default function Home() {
             pb="25vh"
           >
             <Div className="row mt-auto g-2 justify-content-center align-items-center">
-              <h1 className="text-blue mb-5">
+              <h1 className="text-blue mb-3 mb-md-3">
                 Motivos de <Color value={white}>por que</Color> usar ECrypto
               </h1>
-              <Div className="col-3 mx-2 text-center border rounded p-2 bg-dark">
+              <Div className="col-12 col-md-3 mx-2 text-center border rounded p-2 bg-dark">
                 <p>
                   <Color value={blue}>Segurança</Color>
                 </p>
@@ -145,7 +145,7 @@ export default function Home() {
                 </p>
               </Div>
 
-              <Div className="col-3 mx-2 text-center border rounded p-2 bg-dark">
+              <Div className="col-12 col-md-3 mx-2 text-center border rounded p-2 bg-dark">
                 <p>
                   <Color value={blue}>Descentralizado</Color>
                 </p>
@@ -156,7 +156,7 @@ export default function Home() {
                 </p>
               </Div>
 
-              <Div className="col-3 mx-2 text-center border rounded p-2 bg-dark">
+              <Div className="col-12 col-md-3 mx-2 text-center border rounded p-2 bg-dark">
                 <p>
                   <Color value={blue}>Prevenção</Color>
                 </p>
