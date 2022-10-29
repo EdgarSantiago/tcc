@@ -122,7 +122,7 @@ const Email = () => {
             {email.attachments ? (
               <>
                 <p className="mb-0">
-                  <Color>Anexos:</Color>
+                  <Color>Anexos:</Color>{" "}
                   {email.attachments.map((attachs, index) => {
                     return (
                       <a
@@ -180,9 +180,11 @@ export function Bar({ id }) {
           height="40px"
         >
           <Div className="d-flex">
-            <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
-              <AiOutlineLogout />
-            </Btn>
+            <Link href="/">
+              <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
+                <AiOutlineLogout />
+              </Btn>
+            </Link>
           </Div>
 
           <Div className="d-flex">

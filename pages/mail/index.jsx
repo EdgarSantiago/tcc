@@ -149,9 +149,11 @@ export function Bar({ qtyEmails, naoLidasCount, endereco }) {
           height="40px"
         >
           <Div className="d-flex">
-            <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
-              <AiOutlineLogout />
-            </Btn>
+            <Link href="/">
+              <Btn className="btn btn-outline-light mb-0 click py-1 px-2">
+                <AiOutlineLogout />
+              </Btn>
+            </Link>
           </Div>
 
           <Div className="d-flex">

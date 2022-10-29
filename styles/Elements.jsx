@@ -50,6 +50,7 @@ export const GlobalStyles = createGlobalStyle`
   `;
 
 export const Div = styled(motion.div)`
+  display: ${(props) => props.display || ""};
   margin-top: ${(props) => props.mt || ""};
   padding-top: ${(props) => props.pt || ""};
   padding-bottom: ${(props) => props.pb || ""};
