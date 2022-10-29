@@ -134,7 +134,12 @@ export default function Home() {
               <h1 className="text-blue mb-3 mb-md-3">
                 Motivos de <Color value={white}>por que</Color> usar ECrypto
               </h1>
-              <Div className="col-12 col-md-3 mx-2 text-center border rounded p-2 bg-dark">
+              <Div
+                style={{
+                  background: "linear-gradient(#140d12 0 0) padding-box",
+                }}
+                className="col-12 col-md-3 mx-2 text-center border rounded p-2"
+              >
                 <p>
                   <Color value={blue}>Segurança</Color>
                 </p>
@@ -145,7 +150,12 @@ export default function Home() {
                 </p>
               </Div>
 
-              <Div className="col-12 col-md-3 mx-2 text-center border rounded p-2 bg-dark">
+              <Div
+                style={{
+                  background: "linear-gradient(#140d12 0 0) padding-box",
+                }}
+                className="col-12 col-md-3 mx-2 text-center border rounded p-2"
+              >
                 <p>
                   <Color value={blue}>Descentralizado</Color>
                 </p>
@@ -156,7 +166,12 @@ export default function Home() {
                 </p>
               </Div>
 
-              <Div className="col-12 col-md-3 mx-2 text-center border rounded p-2 bg-dark">
+              <Div
+                style={{
+                  background: "linear-gradient(#140d12 0 0) padding-box",
+                }}
+                className="col-12 col-md-3 mx-2 text-center border rounded p-2"
+              >
                 <p>
                   <Color value={blue}>Prevenção</Color>
                 </p>
