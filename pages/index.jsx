@@ -84,7 +84,7 @@ export default function Home() {
                 <h1 className="text-blue">
                   Com ECrypto,{" "}
                   <Color value={white}>seus dados pertencem a você,</Color> não
-                  à empresas de técnologia, governos ou hackers
+                  à empresas de tecnologia, governos ou hackers
                 </h1>
                 <p className="mb-0 text-white2">
                   Nosso serviço criptografado ajuda você a lutar por uma
@@ -110,10 +110,9 @@ export default function Home() {
                   <Color value={white}>suas regras</Color>
                 </h1>
                 <h5 className="mb-0 text-white2">
-                  ECrypto oferece serviço de troca de e-mails criptografado, com
-                  base em blockchain e fácil de usar, envio de valores em
-                  criptomoedas, construido no princípio de seus dados, suas
-                  regras.
+                  O ECrypto fornece um serviço de troca de e-mail criptografado
+                  baseado em blockchain fácil de usar para enviar criptomoedas
+                  baseadas em seus princípios de dados, suas regras.
                 </h5>
               </Div>
             </Div>
@@ -160,9 +159,9 @@ export default function Home() {
                   <Color value={blue}>Descentralizado</Color>
                 </p>
                 <p>
-                  Nosso sistema é baseado em blockchain, é baseado em um
-                  controle e verificação completamente descentralizados. Não
-                  armazenamos seus dados, eles ficam na blockchain.
+                  Nosso sistema é baseado em blockchain que funciona como um
+                  banco de dados através do qual ocorrem transações seguras,
+                  rastreáveis e descentralizadas.
                 </p>
               </Div>
 
@@ -177,8 +176,8 @@ export default function Home() {
                 </p>
                 <p>
                   As informações são criptografadas. A criptografia é a base das
-                  criptomoedas. Ela funciona como uma camada de segurança online
-                  que dificulta bastante qualquer tipo de fraude.
+                  criptomoedas. Ela atua como uma camada de segurança online e
+                  dificulta qualquer tipo de fraude.
                 </p>
               </Div>
             </Div>
